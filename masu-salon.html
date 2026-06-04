@@ -170,6 +170,25 @@
   .join-card li{font-size:.95rem;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:6px;}
   .join-card li::before{content:"—";position:absolute;left:0;color:var(--accent-2);}
 
+  /* ---- 会場 ---- */
+  .venue{background:var(--bg-2);}
+  .venue-wrap{display:flex;align-items:center;gap:60px;max-width:860px;margin:0 auto;}
+  @media(max-width:720px){.venue-wrap{flex-direction:column;gap:32px;text-align:center;}}
+  .venue-icon{
+    flex:none;width:110px;height:110px;border-radius:50%;
+    background:var(--paper);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.8rem;
+  }
+  .venue-body h3{font-family:"Shippori Mincho",serif;font-size:1.6rem;letter-spacing:.12em;font-weight:600;margin-bottom:14px;}
+  .venue-body p{font-size:1rem;color:var(--ink-soft);margin-bottom:10px;}
+  .venue-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+  @media(max-width:720px){.venue-tags{justify-content:center;}}
+  .venue-tag{
+    font-family:"Shippori Mincho",serif;font-size:.82rem;letter-spacing:.14em;
+    padding:5px 16px;border:1px solid var(--accent-2);border-radius:999px;color:var(--accent);
+  }
+
   /* ---- オーガナイザー ---- */
   .organizer{background:var(--paper);}
   .org-wrap{display:flex;align-items:center;gap:54px;}
@@ -255,6 +274,7 @@
     <a href="#concept">コンセプト</a>
     <a href="#events">イベント</a>
     <a href="#values">価値観</a>
+    <a href="#venue">会場</a>
     <a href="#organizer">主催者</a>
     <a href="#join">参加方法</a>
     <a href="#contact">連絡</a>
@@ -269,6 +289,7 @@
   <a href="#concept" class="mobile-link">コンセプト</a>
   <a href="#events" class="mobile-link">イベント</a>
   <a href="#values" class="mobile-link">価値観</a>
+  <a href="#venue" class="mobile-link">会場</a>
   <a href="#organizer" class="mobile-link">主催者</a>
   <a href="#join" class="mobile-link">参加方法</a>
   <a href="#contact" class="mobile-link">連絡</a>
@@ -331,6 +352,28 @@
       <div class="val"><div class="num">03</div><div class="en">Human Connection</div><div class="ja">人とのつながりを大切にする。</div></div>
       <div class="val"><div class="num">04</div><div class="en">Diversity</div><div class="ja">様々なテーマや人との出会いを楽しむ。</div></div>
       <div class="val"><div class="num">05</div><div class="en">Small Group</div><div class="ja">少人数だからこそ生まれる会話を大切にする。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 会場 -->
+<section class="venue" id="venue">
+  <div class="wrap">
+    <div class="sec-label">The Venue</div>
+    <h2 class="sec-title">笛吹BASE</h2>
+    <div class="venue-wrap">
+      <div class="venue-icon">🏠</div>
+      <div class="venue-body">
+        <h3>住所非公開の隠れ家</h3>
+        <p>山梨県笛吹市、石和温泉駅から徒歩13分。温泉と果樹園の町に、ひっそりと佇む私的な空間です。</p>
+        <p>参加者にのみ、イベント前日に詳細な住所をお伝えしています。場所を知っているのは招かれた人だけ。それがMaSU SALONの流儀です。</p>
+        <div class="venue-tags">
+          <span class="venue-tag">住所非公開</span>
+          <span class="venue-tag">石和温泉駅 徒歩13分</span>
+          <span class="venue-tag">山梨県笛吹市</span>
+          <span class="venue-tag">少人数限定</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
