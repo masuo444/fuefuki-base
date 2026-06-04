@@ -44,10 +44,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-sub{font-family:"Shippori Mincho",serif;font-size:clamp(1rem,2vw,1.4rem);color:rgba(255,255,255,.65);line-height:2.2;letter-spacing:.08em;}
 
 /* CHAPTERS */
-.chapter{padding:140px 0;}
-.chapter:nth-child(even){background:#fff;}
 .wrap{width:min(760px,calc(100% - 80px));margin:auto;}
-@media(max-width:600px){.wrap{width:calc(100% - 48px);}.chapter{padding:100px 0;}}
+@media(max-width:600px){.wrap{width:calc(100% - 48px);}}
 
 .ch-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.82rem;letter-spacing:.32em;color:var(--gold);margin-bottom:32px;display:block;}
 .ch-h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.55;letter-spacing:.04em;margin-bottom:64px;}
@@ -68,10 +66,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* FOOTER */
 footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.25);text-align:center;padding:28px;font-size:.72rem;letter-spacing:.18em;}
 
-/* STORY PHOTO */
-.story-photo{width:100%;aspect-ratio:16/9;overflow:hidden;margin-top:80px;}
-.story-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-@media(max-width:600px){.story-photo{aspect-ratio:4/3;margin-top:56px;}}
+/* CHAPTER SPLIT LAYOUT */
+.ch-split{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;max-width:1200px;margin:0 auto;padding:140px 80px;}
+.ch-split.rev{direction:rtl;}
+.ch-split.rev > *{direction:ltr;}
+.ch-split-photo{position:sticky;top:120px;aspect-ratio:2/3;overflow:hidden;}
+.ch-split-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.ch-solo{padding:140px 0;}
+@media(max-width:900px){
+  .ch-split{grid-template-columns:1fr;gap:56px;padding:100px 40px;direction:ltr;}
+  .ch-split > *{direction:ltr;}
+  .ch-split-photo{position:static;aspect-ratio:4/3;}
+  .ch-split.rev .ch-split-text{order:-1;}
+}
+@media(max-width:600px){.ch-split{padding:80px 24px;}}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:.9s ease;}
@@ -99,41 +107,45 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 </section>
 
 <!-- CHAPTER 1 -->
-<section class="chapter" id="chapter1">
-  <div class="wrap rv">
-    <span class="ch-num">Chapter 01</span>
-    <h2 class="ch-h2"><span>世界を旅して、</span><span>気づいたこと。</span></h2>
-    <p class="ch-body">4年半にわたるアドレスホッパー生活。</p>
-    <p class="ch-body">世界40カ国を旅し、日本、アイルランド、ドバイなど、さまざまな場所で暮らしながら、イベントやコミュニティを運営してきました。</p>
-    <p class="ch-body">国も、文化も、言葉も違う。</p>
-    <p class="ch-body">それでも、美味しいお酒を囲みながら語り合う時間や、偶然の出会いから生まれる会話は、人と人を自然につないでくれました。</p>
-    <div class="ch-emphasis">場所は違っても、本当に価値のあるものは変わらない。</div>
-    <p class="ch-body">そう感じるようになりました。</p>
-  </div>
-  <div class="story-photo rv">
-    <img src="story-ch1.jpg" alt="ダブリンでの国際コミュニティ">
+<section id="chapter1">
+  <div class="ch-split rv">
+    <div class="ch-split-text">
+      <span class="ch-num">Chapter 01</span>
+      <h2 class="ch-h2"><span>世界を旅して、</span><span>気づいたこと。</span></h2>
+      <p class="ch-body">4年半にわたるアドレスホッパー生活。</p>
+      <p class="ch-body">世界40カ国を旅し、日本、アイルランド、ドバイなど、さまざまな場所で暮らしながら、イベントやコミュニティを運営してきました。</p>
+      <p class="ch-body">国も、文化も、言葉も違う。</p>
+      <p class="ch-body">それでも、美味しいお酒を囲みながら語り合う時間や、偶然の出会いから生まれる会話は、人と人を自然につないでくれました。</p>
+      <div class="ch-emphasis">場所は違っても、本当に価値のあるものは変わらない。</div>
+      <p class="ch-body">そう感じるようになりました。</p>
+    </div>
+    <div class="ch-split-photo">
+      <img src="story-ch1.jpg" alt="ダブリンでの国際コミュニティ">
+    </div>
   </div>
 </section>
 
 <!-- CHAPTER 2 -->
-<section class="chapter" id="chapter2">
-  <div class="wrap rv">
-    <span class="ch-num">Chapter 02</span>
-    <h2 class="ch-h2"><span>人生を豊かにするのは、</span><span>「リアルな時間」だった。</span></h2>
-    <p class="ch-body">テクノロジーが進化し、世界中の人と簡単につながれる時代になりました。</p>
-    <p class="ch-body">しかしその一方で、同じ空間で食事をし、笑い、語り合う時間。そんな何気ないひとときこそが、人の人生を豊かにしている。そう実感する機会が増えていきました。</p>
-    <div class="ch-divider"></div>
-    <p class="ch-body">どんな仕事をしているか。どこに住んでいるか。どんな肩書きを持っているか。</p>
-    <div class="ch-emphasis">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
-    <p class="ch-body">そう考えるようになりました。</p>
-  </div>
-  <div class="story-photo rv">
-    <img src="story-ch2.jpg" alt="海外での食事と出会い">
+<section id="chapter2" style="background:#fff;">
+  <div class="ch-split rev rv">
+    <div class="ch-split-text">
+      <span class="ch-num">Chapter 02</span>
+      <h2 class="ch-h2"><span>人生を豊かにするのは、</span><span>「リアルな時間」だった。</span></h2>
+      <p class="ch-body">テクノロジーが進化し、世界中の人と簡単につながれる時代になりました。</p>
+      <p class="ch-body">しかしその一方で、同じ空間で食事をし、笑い、語り合う時間。そんな何気ないひとときこそが、人の人生を豊かにしている。そう実感する機会が増えていきました。</p>
+      <div class="ch-divider"></div>
+      <p class="ch-body">どんな仕事をしているか。どこに住んでいるか。どんな肩書きを持っているか。</p>
+      <div class="ch-emphasis">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
+      <p class="ch-body">そう考えるようになりました。</p>
+    </div>
+    <div class="ch-split-photo">
+      <img src="story-ch2.jpg" alt="海外での食事と出会い">
+    </div>
   </div>
 </section>
 
 <!-- CHAPTER 3 -->
-<section class="chapter" id="chapter3">
+<section id="chapter3" class="ch-solo">
   <div class="wrap rv">
     <span class="ch-num">Chapter 03</span>
     <h2 class="ch-h2"><span>そして、</span><span>山梨県笛吹市へ。</span></h2>
@@ -146,17 +158,19 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 </section>
 
 <!-- CHAPTER 4 -->
-<section class="chapter" id="chapter4">
-  <div class="wrap rv">
-    <span class="ch-num">Chapter 04</span>
-    <h2 class="ch-h2"><span>豪華なものは、</span><span>必要ない。</span></h2>
-    <p class="ch-body">日本酒を楽しむ夜。旅の話で盛り上がる時間。AIについて語り合う会。たこ焼きを囲む週末。</p>
-    <p class="ch-body">特別なイベントもあれば、何気ない集まりもある。</p>
-    <div class="ch-emphasis">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
-    <p class="ch-body">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
-  </div>
-  <div class="story-photo rv">
-    <img src="story-ch4.jpg" alt="日本酒を囲む仲間たち">
+<section id="chapter4" style="background:#fff;">
+  <div class="ch-split rv">
+    <div class="ch-split-text">
+      <span class="ch-num">Chapter 04</span>
+      <h2 class="ch-h2"><span>豪華なものは、</span><span>必要ない。</span></h2>
+      <p class="ch-body">日本酒を楽しむ夜。旅の話で盛り上がる時間。AIについて語り合う会。たこ焼きを囲む週末。</p>
+      <p class="ch-body">特別なイベントもあれば、何気ない集まりもある。</p>
+      <div class="ch-emphasis">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
+      <p class="ch-body">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
+    </div>
+    <div class="ch-split-photo">
+      <img src="story-ch4.jpg" alt="日本酒を囲む仲間たち">
+    </div>
   </div>
 </section>
 
