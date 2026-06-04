@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaSU SALON — 紹介制の隠れ家サロン</title>
+<meta name="description" content="人と文化が交差する、紹介制の隠れ家サロン。日本酒・読書・国際交流など毎回テーマが変わる少人数イベントを不定期開催。山梨県笛吹市を拠点に、Hosted by MaSU。">
+<meta property="og:title" content="MaSU SALON — 紹介制の隠れ家サロン">
+<meta property="og:description" content="人と文化が交差する、小さな社交場。毎回テーマが変わる少人数イベントを不定期開催。公式LINEで案内を受け取れます。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://qr-official.line.me/sid/M/412jqsnb.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MaSU SALON — 紹介制の隠れ家サロン">
+<meta name="twitter:description" content="人と文化が交差する、紹介制の隠れ家サロン。公式LINEで案内を受け取れます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:        #f5efe4;
+    --bg-2:      #efe6d6;
+    --paper:     #faf6ee;
+    --ink:       #3a342b;
+    --ink-soft:  #6b6253;
+    --line:      #d9ccb6;
+    --accent:    #9c6b3f;
+    --accent-2:  #c89b6a;
+    --leaf:      #7d8a5c;
+    --line-green:#06C755;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.9;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .serif{font-family:"Cormorant Garamond",serif;}
+  .mincho{font-family:"Shippori Mincho",serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .narrow{max-width:760px;}
+
+  /* ---- ヘッダー ---- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 32px;
+    background:rgba(245,239,228,0);
+    transition:background .4s,box-shadow .4s,padding .4s;
+  }
+  header.nav.scrolled{
+    background:rgba(245,239,228,.92);
+    box-shadow:0 1px 0 var(--line);
+    padding:14px 32px;
+    backdrop-filter:blur(8px);
+  }
+  .brand{font-family:"Cormorant Garamond",serif;font-size:1.4rem;letter-spacing:.18em;font-weight:500;}
+  .brand b{color:var(--accent);font-weight:600;}
+  .nav-links{display:flex;gap:30px;font-size:.82rem;letter-spacing:.12em;}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;transition:color .3s;}
+  .nav-links a:hover{color:var(--accent);}
+
+  /* ハンバーガーメニュー */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-menu{
+    display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:40;
+    background:rgba(245,239,228,.97);backdrop-filter:blur(10px);
+    flex-direction:column;align-items:center;justify-content:center;gap:36px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:"Shippori Mincho",serif;font-size:1.3rem;letter-spacing:.22em;color:var(--ink);text-decoration:none;}
+  .mobile-menu a:hover{color:var(--accent);}
+  .mobile-menu .line-btn-sm{
+    margin-top:12px;display:inline-block;font-family:"Shippori Mincho",serif;
+    font-size:.9rem;letter-spacing:.14em;color:#fff;background:var(--line-green);
+    padding:12px 32px;border-radius:999px;text-decoration:none;
+  }
+
+  @media(max-width:720px){
+    .nav-links{display:none}
+    .hamburger{display:flex}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;position:relative;padding:120px 28px 80px;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(200,155,106,.18), transparent 60%),
+      linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 100%);
+  }
+  .hero::after{
+    content:"";position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+    width:1px;height:54px;background:linear-gradient(var(--accent),transparent);
+  }
+  .eyebrow{font-size:.74rem;letter-spacing:.42em;color:var(--accent);text-transform:uppercase;margin-bottom:28px;}
+  .hero h1{
+    font-family:"Cormorant Garamond",serif;font-weight:500;
+    font-size:clamp(3.4rem,11vw,7rem);letter-spacing:.06em;line-height:1;color:var(--ink);
+  }
+  .hero .ja-title{font-family:"Shippori Mincho",serif;font-size:clamp(1.05rem,3.4vw,1.5rem);letter-spacing:.32em;color:var(--ink-soft);margin-top:22px;font-weight:500;}
+  .hero .lead{max-width:600px;margin:34px auto 0;font-size:1rem;color:var(--ink-soft);}
+  .keywords{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .keywords span{
+    font-family:"Shippori Mincho",serif;font-size:.85rem;letter-spacing:.18em;
+    padding:7px 18px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:rgba(255,255,255,.35);
+  }
+  .hero .sign{margin-top:40px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--accent);}
+  .hero .sign small{display:block;font-style:normal;font-family:"Zen Kaku Gothic New",sans-serif;font-size:.78rem;letter-spacing:.1em;color:var(--ink-soft);margin-top:4px;}
+  .hero-line-btn{
+    margin-top:36px;display:inline-flex;align-items:center;gap:10px;
+    font-family:"Shippori Mincho",serif;font-size:.9rem;letter-spacing:.14em;
+    color:#fff;background:var(--line-green);padding:13px 30px;border-radius:999px;
+    text-decoration:none;transition:opacity .3s,transform .3s;
+  }
+  .hero-line-btn:hover{opacity:.85;transform:translateY(-2px);}
+  .hero-line-btn svg{width:20px;height:20px;fill:#fff;flex:none;}
+
+  /* ---- セクション共通 ---- */
+  section{padding:96px 0;}
+  .sec-label{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent);font-size:1.05rem;letter-spacing:.05em;margin-bottom:10px;text-align:center;}
+  .sec-title{font-family:"Shippori Mincho",serif;font-size:clamp(1.5rem,4vw,2.1rem);text-align:center;letter-spacing:.12em;font-weight:600;margin-bottom:48px;}
+  .divider{width:46px;height:1px;background:var(--accent-2);margin:0 auto 48px;}
+
+  /* ---- コンセプト ---- */
+  .concept{background:var(--paper);}
+  .concept .narrow{margin:0 auto;text-align:center;}
+  .concept p{font-size:1.05rem;margin-bottom:22px;color:var(--ink-soft);}
+  .concept p.lead-line{font-family:"Shippori Mincho",serif;font-size:1.25rem;color:var(--ink);line-height:2.1;letter-spacing:.04em;}
+  .concept .scene{font-family:"Shippori Mincho",serif;color:var(--ink);font-size:1.1rem;line-height:2.3;margin-top:8px;}
+
+  /* ---- 基本方針 ---- */
+  .policy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+  .policy-grid div{background:var(--bg);padding:26px 24px;font-family:"Shippori Mincho",serif;font-size:.98rem;letter-spacing:.04em;display:flex;align-items:center;gap:12px;}
+  .policy-grid div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2);flex:none;}
+
+  /* ---- イベント例 ---- */
+  .events{background:var(--bg-2);}
+  .ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;}
+  .ev{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:20px 22px;transition:transform .3s,box-shadow .3s,border-color .3s;}
+  .ev:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(124,90,40,.12);border-color:var(--accent-2);}
+  .ev .name{font-family:"Cormorant Garamond",serif;font-size:1.2rem;letter-spacing:.04em;margin-bottom:4px;}
+  .ev .desc{font-size:.86rem;color:var(--ink-soft);}
+
+  /* ---- 価値観 ---- */
+  .values{background:var(--paper);}
+  .val-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:34px 28px;}
+  .val{text-align:center;}
+  .val .num{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent-2);font-size:1rem;}
+  .val .en{font-family:"Cormorant Garamond",serif;font-size:1.5rem;letter-spacing:.06em;margin:6px 0 4px;}
+  .val .ja{font-size:.92rem;color:var(--ink-soft);}
+
+  /* ---- 参加方法 ---- */
+  .join-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:680px){.join-grid{grid-template-columns:1fr}}
+  .join-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:34px 30px;}
+  .join-card .step{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent);font-size:.95rem;letter-spacing:.04em;}
+  .join-card h3{font-family:"Shippori Mincho",serif;font-size:1.2rem;letter-spacing:.08em;margin:6px 0 16px;font-weight:600;}
+  .join-card p{font-size:.95rem;color:var(--ink-soft);}
+  .join-card ul{list-style:none;margin-top:6px;}
+  .join-card li{font-size:.95rem;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:6px;}
+  .join-card li::before{content:"—";position:absolute;left:0;color:var(--accent-2);}
+
+  /* ---- オーガナイザー ---- */
+  .organizer{background:var(--paper);}
+  .org-wrap{display:flex;align-items:center;gap:54px;}
+  @media(max-width:720px){.org-wrap{flex-direction:column;text-align:center;gap:30px;}}
+  .org-portrait{flex:none;}
+  .org-avatar{
+    width:170px;height:170px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Cormorant Garamond",serif;font-size:2.6rem;letter-spacing:.06em;color:var(--paper);
+    background:radial-gradient(120% 120% at 30% 25%,var(--accent-2),var(--accent));
+    box-shadow:0 14px 34px rgba(124,90,40,.22);
+  }
+  .org-name{font-family:"Cormorant Garamond",serif;font-size:2rem;letter-spacing:.06em;font-weight:500;margin:4px 0 18px;}
+  .org-body p{color:var(--ink-soft);font-size:1rem;margin-bottom:16px;}
+  .org-body p:last-child{margin-bottom:0;}
+
+  /* ---- 詳細（参加費・連絡） ---- */
+  .info{background:var(--bg-2);}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+  .info-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 28px;}
+  .info-card h3{font-family:"Shippori Mincho",serif;font-size:1.05rem;letter-spacing:.1em;margin-bottom:12px;font-weight:600;color:var(--accent);}
+  .info-card p{font-size:.92rem;color:var(--ink-soft);}
+
+  /* ---- LINE登録後の流れ ---- */
+  .line-flow{display:flex;gap:0;justify-content:center;flex-wrap:wrap;margin-top:44px;}
+  .line-step{display:flex;flex-direction:column;align-items:center;text-align:center;width:160px;padding:0 12px;position:relative;}
+  .line-step:not(:last-child)::after{
+    content:"→";position:absolute;right:-10px;top:28px;
+    font-size:1.2rem;color:var(--accent-2);
+  }
+  .line-step .num{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Cormorant Garamond",serif;font-size:1.2rem;margin-bottom:12px;
+  }
+  .line-step p{font-size:.86rem;color:var(--ink-soft);line-height:1.7;}
+  @media(max-width:600px){
+    .line-flow{flex-direction:column;align-items:center;gap:20px;}
+    .line-step:not(:last-child)::after{content:"↓";right:auto;top:auto;bottom:-18px;}
+  }
+
+  /* ---- CTA / フッター ---- */
+  .cta{text-align:center;background:
+      radial-gradient(120% 90% at 50% 100%, rgba(156,107,63,.16), transparent 60%),
+      var(--bg);padding:110px 28px;}
+  .cta .serif-big{font-family:"Cormorant Garamond",serif;font-size:clamp(2.2rem,7vw,3.6rem);letter-spacing:.05em;font-weight:500;}
+  .cta p{color:var(--ink-soft);max-width:520px;margin:18px auto 34px;font-size:1rem;}
+  .btn{display:inline-block;font-family:"Shippori Mincho",serif;letter-spacing:.18em;font-size:.95rem;color:var(--paper);background:var(--accent);padding:15px 42px;border-radius:999px;text-decoration:none;transition:background .3s,transform .3s;}
+  .btn:hover{background:#84582f;transform:translateY(-2px);}
+
+  .line-cta{display:flex;flex-direction:column;align-items:center;gap:24px;margin-top:34px;}
+  .line-add-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"Shippori Mincho",serif;font-size:1rem;letter-spacing:.14em;
+    color:#fff;background:var(--line-green);padding:15px 38px;border-radius:999px;
+    text-decoration:none;transition:opacity .3s,transform .3s;
+  }
+  .line-add-btn:hover{opacity:.85;transform:translateY(-2px);}
+  .line-add-btn svg{width:22px;height:22px;fill:#fff;flex:none;}
+
+  /* QRはモバイルでは非表示、PCのみ */
+  .line-qr-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .line-qr-wrap img.qr{width:130px;height:130px;border-radius:12px;border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.08);}
+  .line-qr-wrap span{font-size:.76rem;color:var(--ink-soft);letter-spacing:.08em;}
+  @media(max-width:720px){.line-qr-wrap{display:none}}
+
+  .cta-note{font-size:.8rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:6px;}
+
+  footer{background:var(--ink);color:#e8dfce;text-align:center;padding:46px 28px;}
+  footer .fbrand{font-family:"Cormorant Garamond",serif;font-size:1.4rem;letter-spacing:.2em;margin-bottom:8px;}
+  footer .fbrand b{color:var(--accent-2);}
+  footer p{font-size:.8rem;color:#b5a98f;letter-spacing:.08em;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="brand">Ma<b>SU</b> SALON</div>
+  <nav class="nav-links">
+    <a href="#concept">コンセプト</a>
+    <a href="#events">イベント</a>
+    <a href="#values">価値観</a>
+    <a href="#organizer">主催者</a>
+    <a href="#join">参加方法</a>
+    <a href="#contact">連絡</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- モバイルメニュー -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#concept" class="mobile-link">コンセプト</a>
+  <a href="#events" class="mobile-link">イベント</a>
+  <a href="#values" class="mobile-link">価値観</a>
+  <a href="#organizer" class="mobile-link">主催者</a>
+  <a href="#join" class="mobile-link">参加方法</a>
+  <a href="#contact" class="mobile-link">連絡</a>
+  <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="line-btn-sm">公式LINEで案内を受け取る</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Invitation Only</div>
+  <h1>MaSU SALON</h1>
+  <div class="ja-title">紹介制の隠れ家サロン</div>
+  <p class="lead">人と文化が交差する、小さな社交場。<br>毎回異なるテーマのもと、世界のお酒、食、旅、AI、アート、ゲーム、語学などを楽しみます。</p>
+  <div class="keywords">
+    <span>住所非公開</span>
+    <span>少人数</span>
+    <span>不定期開催</span>
+  </div>
+  <a class="hero-line-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    公式LINEで案内を受け取る
+  </a>
+  <div class="sign">Hosted by MaSU</div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="wrap narrow">
+    <div class="sec-label">Concept</div>
+    <div class="divider"></div>
+    <p class="lead-line">毎回テーマが変わり、集まる人も変わる。<br>人との出会いと、新しい発見を楽しむ。</p>
+    <p class="scene">MaSU SALONは、現代版の文化サロンです。</p>
+  </div>
+</section>
+
+<!-- イベント例 -->
+<section class="events" id="events">
+  <div class="wrap">
+    <div class="sec-label">Gatherings</div>
+    <h2 class="sec-title">イベント例</h2>
+    <p style="text-align:center;color:var(--ink-soft);margin:-28px auto 44px;max-width:560px;font-size:.95rem;">毎回テーマが変わります。これまでの一例です。</p>
+    <div class="ev-grid">
+      <div class="ev"><div class="name">Sake Night</div><div class="desc">日本酒会</div></div>
+      <div class="ev"><div class="name">Wine Night</div><div class="desc">ワイン会</div></div>
+      <div class="ev"><div class="name">International Night</div><div class="desc">国際交流を楽しむ夜</div></div>
+      <div class="ev"><div class="name">Book Night</div><div class="desc">読書会</div></div>
+      <div class="ev"><div class="name">Card Game Night</div><div class="desc">カードゲーム会</div></div>
+      <div class="ev"><div class="name">Walking</div><div class="desc">ウォーキングイベント</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 価値観 -->
+<section class="values" id="values">
+  <div class="wrap">
+    <div class="sec-label">What We Cherish</div>
+    <h2 class="sec-title">大切にしたい価値観</h2>
+    <div class="val-grid">
+      <div class="val"><div class="num">01</div><div class="en">Respect</div><div class="ja">お互いを尊重する。</div></div>
+      <div class="val"><div class="num">02</div><div class="en">Curiosity</div><div class="ja">新しい価値観や文化を楽しむ。</div></div>
+      <div class="val"><div class="num">03</div><div class="en">Human Connection</div><div class="ja">人とのつながりを大切にする。</div></div>
+      <div class="val"><div class="num">04</div><div class="en">Diversity</div><div class="ja">様々なテーマや人との出会いを楽しむ。</div></div>
+      <div class="val"><div class="num">05</div><div class="en">Small Group</div><div class="ja">少人数だからこそ生まれる会話を大切にする。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- オーガナイザー -->
+<section class="organizer" id="organizer">
+  <div class="wrap org-wrap">
+    <div class="org-portrait">
+      <div class="org-avatar">MaSU</div>
+    </div>
+    <div class="org-body">
+      <div class="sec-label" style="text-align:left;">Organizer</div>
+      <h2 class="org-name">MaSU</h2>
+      <p>これまで日本、アイルランド、ドバイなどで、さまざまなイベントやコミュニティを企画・運営。日本酒、旅、AI、アートなど、ジャンルを超えた出会いを大切にし、人と文化が交差する場づくりを続けてきました。</p>
+      <p>2026年6月に山梨県笛吹市へ移住。現在は地域プロモーションやコミュニティづくりにも携わりながら、国内外で培った経験を活かし、新たなつながりやアイデアが生まれる場をつくっています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 参加方法 -->
+<section id="join">
+  <div class="wrap">
+    <div class="sec-label">How to Join</div>
+    <h2 class="sec-title">参加方法</h2>
+    <div class="join-grid">
+      <div class="join-card">
+        <div class="step">First Visit</div>
+        <h3>初回参加</h3>
+        <p>以下のいずれかでご参加いただけます。</p>
+        <ul>
+          <li>主催者からの招待</li>
+          <li>参加者からの紹介</li>
+        </ul>
+      </div>
+      <div class="join-card">
+        <div class="step">From Second Time</div>
+        <h3>2回目以降</h3>
+        <p>友人1名の同行が可能です。<br>信頼の輪を、少しずつ広げていきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 詳細 -->
+<section class="info" id="contact">
+  <div class="wrap">
+    <div class="sec-label">Details</div>
+    <h2 class="sec-title">参加費・お問い合わせ</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>参加費について</h3>
+        <p>開催内容やテーマに応じて参加費を設定しています。気軽な交流会から特別なイベントまで内容が異なります。目安として¥3,000〜¥8,000程度。詳細は各イベントの案内でご確認ください。</p>
+      </div>
+      <div class="info-card">
+        <h3>連絡手段</h3>
+        <p>次回イベントの案内、参加申込、個別のご連絡は公式LINEで承っています。友だち追加後、イベント開催が決まり次第ご案内します。</p>
+      </div>
+    </div>
+
+    <!-- LINE登録後の流れ -->
+    <div class="line-flow">
+      <div class="line-step">
+        <div class="num">1</div>
+        <p>公式LINEを<br>友だち追加</p>
+      </div>
+      <div class="line-step">
+        <div class="num">2</div>
+        <p>イベント開催が<br>決まり次第案内が届く</p>
+      </div>
+      <div class="line-step">
+        <div class="num">3</div>
+        <p>参加申込フォームで<br>エントリー</p>
+      </div>
+      <div class="line-step">
+        <div class="num">4</div>
+        <p>MaSUから<br>詳細をご連絡</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="serif-big">Join the Circle</div>
+  <p>次回の集まりへ。少人数の、あたたかな時間にご招待します。</p>
+  <div class="line-cta">
+    <a class="line-add-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      友だち追加
+    </a>
+    <div class="line-qr-wrap">
+      <img class="qr" src="https://qr-official.line.me/sid/M/412jqsnb.png" alt="MaSU SALON 公式LINE QRコード">
+      <span>QRコードで友だち追加（PC）</span>
+    </div>
+  </div>
+  <p class="cta-note">Invitation Only ／ Hosted by MaSU</p>
+</section>
+
+<footer>
+  <div class="fbrand">Ma<b>SU</b> SALON</div>
+  <p>紹介制の隠れ家サロン ／ 人と文化が交差する、小さな社交場。</p>
+</footer>
+
+<script>
+  // ナビ背景
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+
+  // ハンバーガーメニュー
+  const hamburger=document.getElementById('hamburger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  document.querySelectorAll('.mobile-link, .line-btn-sm').forEach(a=>{
+    a.addEventListener('click',()=>{
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+
+  // reveal
+  document.querySelectorAll('section > .wrap, .concept .narrow').forEach(el=>el.classList.add('reveal'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
