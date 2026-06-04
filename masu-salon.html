@@ -75,12 +75,13 @@ nav.light{color:var(--ink);background:rgba(245,239,228,.95);backdrop-filter:blur
 .gather-head h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:500;line-height:1.7;letter-spacing:.05em;margin-bottom:0;}
 .gather-head .en{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--muted);letter-spacing:.06em;margin-bottom:16px;display:block;}
 .gather-head p{font-size:.95rem;color:var(--soft);line-height:2;margin-top:24px;max-width:480px;}
-.gather-photos{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;}
-.gp1{grid-column:span 7;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#c8a87a,#5a3518);}
-.gp2{grid-column:span 5;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(160deg,#b09070,#2d1f12);}
-.gp3{grid-column:span 5;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(145deg,#d4b890,#704828);}
-.gp4{grid-column:span 7;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#9a7858,#1e1208);}
-@media(max-width:768px){.gather-photos{grid-template-columns:1fr 1fr;}.gp1,.gp2,.gp3,.gp4{grid-column:span 1;aspect-ratio:1;}}
+.slideshow{position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;background:#111;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+.slide.active{opacity:1;}
+.slide-dots{display:flex;justify-content:center;gap:10px;margin-top:28px;}
+.slide-dot{width:5px;height:5px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .3s;border:none;padding:0;}
+.slide-dot.active{background:var(--ink);}
+@media(max-width:768px){.slideshow{aspect-ratio:4/3;}}
 
 /* ─── HOST ─── */
 .host-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
@@ -182,11 +183,17 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
       <h2>これまで世界各地で、<br>イベントやコミュニティを<br>開催してきました。</h2>
       <p>日本、アイルランド、ドバイ。<br>2026年、新たな舞台として<br>笛吹BASEが始まります。</p>
     </div>
-    <div class="gather-photos reveal">
-      <div class="gp1"></div>
-      <div class="gp2"></div>
-      <div class="gp3"></div>
-      <div class="gp4"></div>
+    <div class="slideshow reveal">
+      <div class="slide active" style="background:linear-gradient(135deg,#c8a87a,#5a3518);"></div>
+      <div class="slide" style="background:linear-gradient(160deg,#b09070,#2d1f12);"></div>
+      <div class="slide" style="background:linear-gradient(145deg,#d4b890,#704828);"></div>
+      <div class="slide" style="background:linear-gradient(135deg,#9a7858,#1e1208);"></div>
+    </div>
+    <div class="slide-dots">
+      <button class="slide-dot active" aria-label="1"></button>
+      <button class="slide-dot" aria-label="2"></button>
+      <button class="slide-dot" aria-label="3"></button>
+      <button class="slide-dot" aria-label="4"></button>
     </div>
   </div>
 </section>
@@ -253,6 +260,23 @@ const io2=new IntersectionObserver(([e])=>nav.className='nav '+(e.isIntersecting
 io2.observe(hero);
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Slideshow
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.slide-dot');
+  if(!slides.length)return;
+  let cur=0,timer;
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(timer);goTo(i);timer=setInterval(()=>goTo(cur+1),4500);}));
+  timer=setInterval(()=>goTo(cur+1),4500);
+})();
 </script>
 </body>
 </html>
