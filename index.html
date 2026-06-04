@@ -98,15 +98,24 @@ nav.light{color:var(--ink);background:rgba(245,239,228,.95);backdrop-filter:blur
 @media(max-width:768px){.host-grid{grid-template-columns:1fr;gap:56px;}.host-photo{aspect-ratio:4/3;}}
 
 /* ─── ACCESS ─── */
-.access-full{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;background:#1a120a;}
-.access-photo{position:absolute;inset:0;background:linear-gradient(160deg,#1a3020,#2d4a30 40%,#6a8850 80%,#c8c898 100%);}
-.access-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;}
-.access-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.3) 60%,rgba(0,0,0,.1) 100%);}
-.access-body{position:relative;z-index:2;color:#fff;padding:80px 0;}
-.access-body .label{color:rgba(255,255,255,.45);margin-bottom:40px;}
-.access-body h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.8rem,4vw,3.4rem);font-weight:500;line-height:1.7;letter-spacing:.06em;margin-bottom:40px;}
-.access-body p{font-size:1.15rem;color:rgba(255,255,255,.92);line-height:2.1;margin-bottom:16px;max-width:480px;}
-.access-detail{margin-top:48px;font-size:.95rem;color:rgba(255,255,255,.6);letter-spacing:.1em;line-height:2.2;}
+.access-full{background:linear-gradient(135deg,#1a3320 0%,#243d28 50%,#1a3320 100%);padding:120px 0 80px;}
+.access-inner{color:#fff;}
+.access-inner .label{color:rgba(201,169,110,.75);margin-bottom:40px;}
+.access-inner h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.6;letter-spacing:.06em;margin-bottom:40px;color:#fff;}
+.access-inner p{font-size:1.1rem;color:rgba(255,255,255,.88);line-height:2;margin-bottom:12px;}
+.access-route{display:flex;align-items:flex-start;justify-content:center;gap:0;margin:64px 0 56px;flex-wrap:nowrap;}
+.access-step{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:100px;}
+.step-num{font-family:"Cormorant Garamond",serif;font-size:.72rem;letter-spacing:.22em;color:#c9a96e;margin-bottom:4px;}
+.step-num::after{content:'';display:block;width:20px;height:1px;background:#c9a96e;margin:6px auto 0;}
+.step-icon{width:56px;height:56px;color:#c9a96e;}
+.step-icon svg{width:100%;height:100%;}
+.step-label{font-family:"Noto Serif JP",serif;font-size:.85rem;color:rgba(255,255,255,.85);text-align:center;line-height:1.7;letter-spacing:.04em;}
+.access-arrow{display:flex;align-items:center;padding:0 4px;margin-top:40px;color:rgba(201,169,110,.5);font-size:.7rem;}
+.access-arrow::before,.access-arrow::after{content:'';display:block;width:24px;height:1px;background:rgba(201,169,110,.35);}
+.access-arrow span{margin:0 4px;font-size:.65rem;}
+.access-divider{border:none;border-top:1px solid rgba(255,255,255,.12);margin:0 0 28px;}
+.access-note{font-size:.88rem;color:rgba(255,255,255,.45);letter-spacing:.06em;line-height:2;}
+@media(max-width:768px){.access-route{gap:0;flex-wrap:wrap;justify-content:center;}.access-step{min-width:80px;}.access-arrow{display:none;}}
 
 /* ─── FINAL ─── */
 .final{background:#0d0905;color:#fff;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;}
@@ -226,22 +235,78 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 
 <!-- ACCESS -->
 <section class="access-full" id="access">
-  <div class="access-photo"></div>
-  <div class="access-veil"></div>
-  <div class="wrap access-body reveal">
+  <div class="wrap access-inner reveal">
     <div class="label">Access</div>
     <h2>温泉とワインのある町、笛吹市。</h2>
     <p>東京から約90分。</p>
     <p>笛吹BASEは、石和温泉駅から徒歩圏内にあります。</p>
     <p>住所は、招待された方にのみご案内しています。</p>
-    <div class="access-detail">
-      東京（新宿） → 石和温泉駅<br>
-      特急かいじ・あずさ　約90分<br>
-      <br>
-      石和温泉駅から徒歩圏内<br>
-      <br>
-      ※詳細な場所は、ご招待した方にのみご案内しています。
+
+    <div class="access-route">
+      <!-- 01 東京 -->
+      <div class="access-step">
+        <div class="step-num">01</div>
+        <div class="step-icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="28" width="8" height="20"/><rect x="20" y="18" width="8" height="30"/><rect x="32" y="22" width="8" height="26"/><rect x="44" y="30" width="4" height="18"/>
+          <line x1="4" y1="48" x2="52" y2="48"/>
+        </svg></div>
+        <div class="step-label">東京（新宿）</div>
+      </div>
+      <div class="access-arrow"><span>›</span></div>
+      <!-- 02 電車 -->
+      <div class="access-step">
+        <div class="step-num">02</div>
+        <div class="step-icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="10" y="10" width="36" height="28" rx="4"/>
+          <line x1="10" y1="24" x2="46" y2="24"/>
+          <rect x="14" y="14" width="10" height="7" rx="1"/><rect x="32" y="14" width="10" height="7" rx="1"/>
+          <line x1="18" y1="38" x2="14" y2="46"/><line x1="38" y1="38" x2="42" y2="46"/>
+          <circle cx="20" cy="44" r="2"/><circle cx="36" cy="44" r="2"/>
+        </svg></div>
+        <div class="step-label">特急かいじ・あずさ<br>約90分</div>
+      </div>
+      <div class="access-arrow"><span>›</span></div>
+      <!-- 03 駅 -->
+      <div class="access-step">
+        <div class="step-num">03</div>
+        <div class="step-icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6,26 28,10 50,26"/>
+          <rect x="10" y="26" width="36" height="22"/>
+          <rect x="18" y="34" width="8" height="14"/><rect x="30" y="34" width="8" height="14"/>
+          <line x1="6" y1="48" x2="50" y2="48"/>
+        </svg></div>
+        <div class="step-label">石和温泉駅</div>
+      </div>
+      <div class="access-arrow"><span>›</span></div>
+      <!-- 04 徒歩 -->
+      <div class="access-step">
+        <div class="step-num">04</div>
+        <div class="step-icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="28" cy="10" r="4"/>
+          <line x1="28" y1="14" x2="26" y2="28"/>
+          <polyline points="16,22 26,28 22,42"/>
+          <polyline points="26,28 34,36 38,48"/>
+          <line x1="18" y1="48" x2="26" y2="42"/>
+        </svg></div>
+        <div class="step-label">徒歩数分</div>
+      </div>
+      <div class="access-arrow"><span>›</span></div>
+      <!-- 05 笛吹BASE -->
+      <div class="access-step">
+        <div class="step-num">05</div>
+        <div class="step-icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6,28 28,10 50,28"/>
+          <rect x="12" y="28" width="32" height="20"/>
+          <rect x="22" y="36" width="12" height="12"/>
+          <line x1="44" y1="30" x2="44" y2="22"/><line x1="40" y1="22" x2="48" y2="22"/>
+          <circle cx="46" cy="38" r="2"/>
+        </svg></div>
+        <div class="step-label">笛吹BASE</div>
+      </div>
     </div>
+
+    <hr class="access-divider">
+    <p class="access-note">※ 詳細な場所は、ご招待した方にのみご案内しています。</p>
   </div>
 </section>
 
