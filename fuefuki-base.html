@@ -3,278 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>笛吹BASEが生まれた理由 — Our Story</title>
-<meta name="description" content="世界を旅し、たくさんの人と出会い、気づいたことがあります。それは「人と人がリアルに集まる時間」こそが、人生を豊かにするということ。">
-<meta property="og:title" content="笛吹BASEが生まれた理由">
+<title>Our Story — 笛吹BASEが生まれた理由</title>
+<meta name="description" content="世界40カ国を旅し、人と人が集まる時間の力を知った。その経験が、笛吹BASEを生んだ。">
+<meta property="og:title" content="Our Story — 笛吹BASEが生まれた理由">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#faf6ef;--bg2:#f2ebe0;--paper:#ffffff;
-  --ink:#1a1510;--soft:#5a5047;--muted:#9a8c7e;
-  --line:#ddd0bc;--accent:#8b5e35;--accent2:#b8895a;
+  --bg:#f5efe4;
+  --ink:#111;
+  --soft:#444;
+  --muted:#999;
+  --line:#ddd;
   --green:#06C755;
+  --gold:#9a7a4a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.85}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.85;font-weight:400;}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(250,246,239,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-.nav-logo{display:flex;flex-direction:column;line-height:1;}
-.nav-logo span:first-child{font-family:"Shippori Mincho",serif;font-size:1.2rem;font-weight:600;letter-spacing:.12em;}
-.nav-logo span:last-child{font-size:.62rem;letter-spacing:.22em;color:var(--muted);margin-top:2px;}
-.nav-links{display:flex;align-items:center;gap:28px;font-size:.82rem;letter-spacing:.1em;}
-.nav-links a{color:var(--soft);transition:color .2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--accent);}
-.nav-links a.active{border-bottom:1px solid var(--accent);padding-bottom:2px;}
-.nav-cta{background:var(--accent);color:#fff !important;padding:9px 20px;border-radius:6px;font-weight:500;}
-.nav-cta:hover{opacity:.85;}
-@media(max-width:720px){.nav{padding:14px 20px}.nav-links a:not(.nav-cta){display:none}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(245,239,228,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-logo{font-family:"Shippori Mincho",serif;font-size:1.1rem;font-weight:600;letter-spacing:.2em;}
+.nav-links{display:flex;align-items:center;gap:36px;font-size:.78rem;letter-spacing:.18em;}
+.nav-links a{opacity:.7;transition:opacity .2s;}
+.nav-links a:hover{opacity:1;}
+.nav-links a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+.nav-line{border:1px solid var(--ink);border-radius:4px;padding:7px 16px;opacity:1 !important;}
+@media(max-width:720px){nav{padding:14px 24px;}.nav-links a:not(.nav-line){display:none;}}
 
 /* HERO */
-.hero{margin-top:57px;display:grid;grid-template-columns:1fr 1fr;min-height:80vh;}
-.hero-left{padding:80px 60px 80px 64px;display:flex;flex-direction:column;justify-content:center;background:var(--bg);}
-.hero-left h1{font-family:"Shippori Mincho",serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:700;line-height:1.3;letter-spacing:.06em;margin-bottom:16px;}
-.hero-left .italic{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent);font-size:1.3rem;letter-spacing:.08em;margin-bottom:32px;}
-.hero-left p{font-size:1rem;color:var(--soft);line-height:2;margin-bottom:14px;}
-.hero-right{position:relative;overflow:hidden;background:linear-gradient(160deg,#c8b49a,#7a5535 50%,#2d1f12);}
-.hero-right img{width:100%;height:100%;object-fit:cover;opacity:.85;}
-.hero-right-text{position:absolute;right:28px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-family:"Shippori Mincho",serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:700;color:#fff;letter-spacing:.2em;line-height:1.6;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);padding:20px 12px;border-left:2px solid rgba(255,255,255,.5);}
-@media(max-width:860px){.hero{grid-template-columns:1fr}.hero-right{min-height:55vw}.hero-left{padding:56px 32px}}
+.hero{min-height:100svh;background:#0d0d0a;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;}
+.hero-label{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.1rem;letter-spacing:.32em;color:rgba(255,255,255,.45);margin-bottom:40px;}
+.hero-h1{font-family:"Noto Serif JP",serif;font-size:clamp(2rem,5vw,4rem);font-weight:500;color:#fff;line-height:1.5;letter-spacing:.06em;margin-bottom:56px;}
+.hero-divider{width:40px;height:1px;background:rgba(255,255,255,.2);margin:0 auto 48px;}
+.hero-sub{font-family:"Shippori Mincho",serif;font-size:clamp(1rem,2vw,1.4rem);color:rgba(255,255,255,.65);line-height:2.2;letter-spacing:.08em;}
 
-/* SECTION */
-.section{padding:100px 0;}
-.section.alt{background:var(--bg2);}
-.wrap{width:min(1120px,calc(100% - 60px));margin:auto;}
+/* CHAPTERS */
+.chapter{padding:140px 0;}
+.chapter:nth-child(even){background:#fff;}
+.wrap{width:min(760px,calc(100% - 80px));margin:auto;}
+@media(max-width:600px){.wrap{width:calc(100% - 48px);}.chapter{padding:100px 0;}}
 
-/* STORY */
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
-.story-label{font-size:.74rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;}
-.story-grid h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.45;letter-spacing:.06em;margin-bottom:28px;}
-.story-grid p{font-size:.98rem;color:var(--soft);line-height:2.1;margin-bottom:18px;}
-.timeline{margin-top:16px;}
-.tl-item{display:flex;gap:18px;margin-bottom:28px;align-items:flex-start;}
-.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--accent2);flex:none;margin-top:6px;}
-.tl-body .tl-year{font-size:.82rem;color:var(--muted);letter-spacing:.1em;margin-bottom:4px;}
-.tl-body .tl-text{font-family:"Shippori Mincho",serif;font-size:1rem;font-weight:500;line-height:1.6;color:var(--ink);}
-.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;}
-.photo-grid .photo{border-radius:8px;overflow:hidden;}
-.photo-grid .photo.tall{grid-row:span 2;}
-.photo-placeholder{background:linear-gradient(145deg,#d4c4b0,#8a6545);width:100%;aspect-ratio:4/3;border-radius:8px;}
-.photo-placeholder.tall{aspect-ratio:3/4;}
-.photo-placeholder.wide{aspect-ratio:16/9;}
-@media(max-width:720px){.story-grid{grid-template-columns:1fr;gap:40px}}
+.ch-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.82rem;letter-spacing:.32em;color:var(--gold);margin-bottom:32px;display:block;}
+.ch-h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.55;letter-spacing:.04em;margin-bottom:64px;}
+.ch-h2 span{display:block;}
+.ch-body{font-size:1.1rem;color:var(--soft);line-height:2.4;margin-bottom:32px;}
+.ch-body:last-child{margin-bottom:0;}
+.ch-emphasis{font-family:"Noto Serif JP",serif;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:2.2;margin:48px 0;padding-left:20px;border-left:2px solid var(--gold);}
+.ch-divider{width:32px;height:1px;background:var(--line);margin:56px 0;}
 
-/* CONCEPT */
-.concept-grid{display:grid;grid-template-columns:380px 1fr;gap:72px;align-items:center;}
-.concept-img{border-radius:16px;overflow:hidden;height:480px;background:linear-gradient(160deg,#2d2010,#7a5535 50%,#c4a06a);}
-.concept-img img{width:100%;height:100%;object-fit:cover;}
-.concept-right h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.4;letter-spacing:.06em;margin-bottom:24px;}
-.concept-right p{font-size:.98rem;color:var(--soft);line-height:2;margin-bottom:14px;}
-.activities{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px;margin-top:28px;}
-.act{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--soft);}
-.act-icon{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1rem;flex:none;}
-.act-more{grid-column:span 2;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent2);font-size:1.1rem;text-align:right;margin-top:4px;}
-@media(max-width:860px){.concept-grid{grid-template-columns:1fr}.concept-img{height:300px}}
+/* FINAL */
+.final{background:#0d0d0a;color:#fff;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;}
+.final-h2{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(2.4rem,6vw,5rem);letter-spacing:.06em;line-height:1.2;margin-bottom:20px;}
+.final-sub{font-family:"Shippori Mincho",serif;font-size:1.1rem;color:rgba(255,255,255,.45);letter-spacing:.14em;margin-bottom:56px;}
+.line-btn{display:inline-flex;align-items:center;gap:12px;background:var(--green);color:#fff;padding:16px 40px;font-size:.88rem;font-weight:500;letter-spacing:.14em;transition:opacity .2s;}
+.line-btn:hover{opacity:.85;}
+.line-btn svg{width:20px;height:20px;fill:#fff;flex:none;}
 
-/* HOST + ACCESS */
-.host-access{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:420px;}
-.host-block{padding:72px 56px;background:var(--bg);}
-.host-inner{display:flex;gap:24px;align-items:flex-start;margin-bottom:24px;}
-.host-photo{width:90px;height:90px;border-radius:50%;overflow:hidden;flex:none;background:linear-gradient(145deg,#c4a06a,#5a3a1a);}
-.host-photo img{width:100%;height:100%;object-fit:cover;}
-.host-name{font-family:"Shippori Mincho",serif;font-size:1.8rem;font-weight:700;letter-spacing:.08em;margin-bottom:6px;}
-.host-label{font-size:.74rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;}
-.host-block p{font-size:.92rem;color:var(--soft);line-height:1.95;margin-bottom:12px;}
-.access-block{padding:72px 56px;background:#2d4a35;color:#eee8dc;position:relative;overflow:hidden;}
-.access-block::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#3d6b48,#1a3020);opacity:.7;}
-.access-inner{position:relative;z-index:1;}
-.access-block .story-label{color:rgba(238,232,220,.6);}
-.access-block h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;line-height:1.4;letter-spacing:.06em;margin-bottom:28px;color:#fff;}
-.access-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:.92rem;color:rgba(238,232,220,.9);}
-.access-item .icon{font-size:1rem;flex:none;margin-top:2px;}
-.access-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:10px 18px;font-size:.85rem;color:#fff;letter-spacing:.08em;transition:background .2s;}
-.access-link:hover{background:rgba(255,255,255,.12);}
-@media(max-width:720px){.host-access{grid-template-columns:1fr}.host-block,.access-block{padding:52px 32px}}
+/* FOOTER */
+footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.25);text-align:center;padding:28px;font-size:.72rem;letter-spacing:.18em;}
 
-/* CTA */
-.cta-section{background:var(--bg2);text-align:center;padding:100px 22px;position:relative;overflow:hidden;}
-.cta-section::before{content:"";position:absolute;bottom:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(184,137,90,.15),transparent 70%);}
-.cta-section h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:.08em;margin-bottom:12px;}
-.cta-section p{color:var(--soft);font-size:1rem;margin-bottom:36px;}
-.line-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;padding:15px 36px;border-radius:999px;font-weight:600;font-size:1rem;letter-spacing:.08em;transition:opacity .2s,transform .2s;}
-.line-btn:hover{opacity:.85;transform:translateY(-2px);}
-.line-btn svg{width:22px;height:22px;fill:#fff;flex:none;}
-
-footer{background:#0f0b08;color:#c8b8a0;text-align:center;padding:36px 22px;font-size:.82rem;letter-spacing:.1em;}
-
-.reveal{opacity:0;transform:translateY(20px);transition:.75s ease}
-.reveal.in{opacity:1;transform:none}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:.9s ease;}
+.rv.in{opacity:1;transform:none;}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<header class="nav">
-  <a href="index.html" class="nav-logo">
-    <span>笛吹BASE</span>
-    <span>FUEFUKI BASE</span>
-  </a>
-  <nav class="nav-links">
-    <a href="index.html">TOP</a>
-    <a href="fuefuki-base.html" class="active">笛吹BASEが生まれた理由</a>
-    <a href="index.html#events">イベント一覧</a>
-    <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="nav-cta">LINE登録</a>
-  </nav>
-</header>
+<nav>
+  <a class="nav-logo" href="index.html">笛吹BASE</a>
+  <div class="nav-links">
+    <a href="fuefuki-base.html" class="active">STORY</a>
+    <a href="index.html#gatherings">EVENT</a>
+    <a href="index.html#access">ACCESS</a>
+    <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="nav-line">LINE</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <h1>笛吹BASEが<br>生まれた理由</h1>
-    <div class="italic">Our Story</div>
-    <p>世界を旅し、たくさんの人と出会い、<br>気づいたことがあります。<br>それは「人と人がリアルに集まる時間」こそが、<br>人生を豊かにするということ。</p>
-    <p>この場所には、そんな想いを込めました。</p>
-  </div>
-  <div class="hero-right">
-    <img src="プロフィール.png" alt="笛吹BASE">
-    <div class="hero-right-text">人と人が集まり、何かが始まる場所。</div>
+  <div class="hero-label">Our Story</div>
+  <h1 class="hero-h1">笛吹BASEが<br>生まれた理由</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">人と人が集まる時間には、<br>人生を変える力がある。</p>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="chapter" id="chapter1">
+  <div class="wrap rv">
+    <span class="ch-num">Chapter 01</span>
+    <h2 class="ch-h2"><span>世界を旅して、</span><span>気づいたこと。</span></h2>
+    <p class="ch-body">4年半にわたるアドレスホッパー生活。</p>
+    <p class="ch-body">世界40カ国を旅し、日本、アイルランド、ドバイなど、さまざまな場所で暮らしながら、イベントやコミュニティを運営してきました。</p>
+    <p class="ch-body">国も、文化も、言葉も違う。</p>
+    <p class="ch-body">それでも、美味しいお酒を囲みながら語り合う時間や、偶然の出会いから生まれる会話は、人と人を自然につないでくれました。</p>
+    <div class="ch-emphasis">場所は違っても、本当に価値のあるものは変わらない。</div>
+    <p class="ch-body">そう感じるようになりました。</p>
   </div>
 </section>
 
-<!-- STORY -->
-<section class="section">
-  <div class="wrap">
-    <div class="story-grid reveal">
-      <div>
-        <div class="story-label">STORY</div>
-        <h2>世界を旅して、<br>たどり着いた場所。</h2>
-        <p>4年半のアドレスホッパー生活。<br>世界40カ国、日本・アイルランド・ドバイなど、様々な土地でイベントやコミュニティを運営してきました。</p>
-        <p>旅の中で出会ったのは、<br>国や文化を超えてつながる「人の温かさ」。<br>そして、自然と人が調和している美しい風景。</p>
-        <p>そのすべてが重なり、<br>ここ、山梨県笛吹市に根を下ろすことを決めました。</p>
-      </div>
-      <div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-body">
-              <div class="tl-year">〜2022</div>
-              <div class="tl-text">世界40カ国を旅する日々</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-body">
-              <div class="tl-year">2022–2023</div>
-              <div class="tl-text">日本・アイルランド・ドバイで<br>イベントやコミュニティを運営</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-body">
-              <div class="tl-year">2024–2025</div>
-              <div class="tl-text">国内外での拠点を行き来する生活</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-body">
-              <div class="tl-year">2026</div>
-              <div class="tl-text">山梨県笛吹市に移住<br>「笛吹BASE」をスタート</div>
-            </div>
-          </div>
-        </div>
-        <div class="photo-grid">
-          <div class="photo-placeholder"></div>
-          <div class="photo-placeholder"></div>
-          <div class="photo-placeholder wide" style="grid-column:span 2;aspect-ratio:16/6;"></div>
-        </div>
-      </div>
-    </div>
+<!-- CHAPTER 2 -->
+<section class="chapter" id="chapter2">
+  <div class="wrap rv">
+    <span class="ch-num">Chapter 02</span>
+    <h2 class="ch-h2"><span>人生を豊かにするのは、</span><span>「リアルな時間」だった。</span></h2>
+    <p class="ch-body">テクノロジーが進化し、世界中の人と簡単につながれる時代になりました。</p>
+    <p class="ch-body">しかしその一方で、同じ空間で食事をし、笑い、語り合う時間。そんな何気ないひとときこそが、人の人生を豊かにしている。そう実感する機会が増えていきました。</p>
+    <div class="ch-divider"></div>
+    <p class="ch-body">どんな仕事をしているか。どこに住んでいるか。どんな肩書きを持っているか。</p>
+    <div class="ch-emphasis">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
+    <p class="ch-body">そう考えるようになりました。</p>
   </div>
 </section>
 
-<!-- CONCEPT -->
-<section class="section alt">
-  <div class="wrap">
-    <div class="concept-grid reveal">
-      <div class="concept-img"></div>
-      <div class="concept-right">
-        <div class="story-label">CONCEPT</div>
-        <h2>何をするかより、<br>誰と過ごすか。</h2>
-        <p>笛吹BASEは、テーマも集まる人も毎回違う、不定期開催の小さな文化サロンです。</p>
-        <p>日本酒の日もあれば、AIを語る夜もある。たこ焼きパーティーや、旅の話で盛り上がる日もある。</p>
-        <p>共通しているのは、「面白い人」と「リアルな体験」が生まれること。</p>
-        <p>ここでは、肩書きや立場を越えて、自然体でつながる時間を大切にしています。</p>
-        <div class="activities">
-          <div class="act"><div class="act-icon">🍶</div>日本酒会</div>
-          <div class="act"><div class="act-icon">🐙</div>たこ焼き会</div>
-          <div class="act"><div class="act-icon">🍷</div>ワイン会</div>
-          <div class="act"><div class="act-icon">📚</div>読書会</div>
-          <div class="act"><div class="act-icon">🤖</div>AI・テック</div>
-          <div class="act"><div class="act-icon">🎲</div>ボードゲーム</div>
-          <div class="act"><div class="act-icon">🌏</div>国際交流</div>
-          <div class="act"><div class="act-icon">🍖</div>BBQ・料理</div>
-          <div class="act-more">and more...</div>
-        </div>
-      </div>
-    </div>
+<!-- CHAPTER 3 -->
+<section class="chapter" id="chapter3">
+  <div class="wrap rv">
+    <span class="ch-num">Chapter 03</span>
+    <h2 class="ch-h2"><span>そして、</span><span>山梨県笛吹市へ。</span></h2>
+    <p class="ch-body">2026年。これまでの移動生活に一区切りをつけ、山梨県笛吹市へ移住しました。</p>
+    <p class="ch-body">温泉とワインのあるこの町には、自然の豊かさと、人の温かさがあります。現在は地域プロモーションやコミュニティづくりにも携わりながら、新しい暮らしを楽しんでいます。</p>
+    <div class="ch-divider"></div>
+    <div class="ch-emphasis">そして、この場所から、もう一度。<br>人と人が出会い、新しい物語が生まれる場をつくりたい。</div>
+    <p class="ch-body">そんな想いから、笛吹BASEは生まれました。</p>
   </div>
 </section>
 
-<!-- HOST + ACCESS -->
-<div class="host-access">
-  <div class="host-block reveal">
-    <div class="story-label">HOST</div>
-    <div class="host-inner">
-      <div class="host-photo">
-        <img src="プロフィール.png" alt="MaSU">
-      </div>
-      <div>
-        <div class="host-name">MaSU</div>
-        <div class="host-label">Organizer</div>
-      </div>
-    </div>
-    <p>世界40カ国を旅し、日本・アイルランド・ドバイでイベントやコミュニティを運営してきました。</p>
-    <p>2026年、山梨県笛吹市に移住。「人と人がリアルに集まる価値」を大切にしたいと思い、笛吹BASEをスタートしました。</p>
-    <p>この場所から、たくさんの出会いと面白いことが生まれることを願っています。</p>
+<!-- CHAPTER 4 -->
+<section class="chapter" id="chapter4">
+  <div class="wrap rv">
+    <span class="ch-num">Chapter 04</span>
+    <h2 class="ch-h2"><span>豪華なものは、</span><span>必要ない。</span></h2>
+    <p class="ch-body">日本酒を楽しむ夜。旅の話で盛り上がる時間。AIについて語り合う会。たこ焼きを囲む週末。</p>
+    <p class="ch-body">特別なイベントもあれば、何気ない集まりもある。</p>
+    <div class="ch-emphasis">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
+    <p class="ch-body">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
   </div>
-  <div class="access-block reveal">
-    <div class="access-inner">
-      <div class="story-label">ACCESS</div>
-      <h2>山梨県笛吹市<br>石和温泉エリア</h2>
-      <div class="access-item"><span class="icon">🚃</span>新宿から電車で約90分</div>
-      <div class="access-item"><span class="icon">🚶</span>石和温泉駅から徒歩13分</div>
-      <div class="access-item"><span class="icon">📍</span>住所は招待された方のみにお伝えします</div>
-      <a class="access-link" href="index.html#access">詳しいアクセスを見る →</a>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<section class="cta-section">
-  <h2>次の集まりへ、あなたも。</h2>
-  <p>イベント情報は公式LINEでお届けしています。</p>
-  <a class="line-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-    LINEで友だち追加
-  </a>
 </section>
 
-<footer>
-  <p>笛吹BASE ／ Hosted by MaSU ／ 山梨県笛吹市</p>
-</footer>
+<!-- FINAL -->
+<section class="final">
+  <div class="rv">
+    <h2 class="final-h2">See you at<br>FUEFUKI BASE.</h2>
+    <p class="final-sub">また、どこかの集まりで。</p>
+    <a class="line-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINEで友だち追加
+    </a>
+  </div>
+</section>
+
+<footer>笛吹BASE &nbsp;/&nbsp; Hosted by MaSU &nbsp;/&nbsp; 山梨県笛吹市</footer>
 
 <script>
-const nav=document.querySelector('.nav');
-addEventListener('scroll',()=>{});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
