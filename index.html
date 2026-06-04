@@ -3,506 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>笛吹BASE — 紹介制の隠れ家サロン</title>
-<meta name="description" content="人と文化が交差する、紹介制の隠れ家サロン。日本酒・読書・国際交流など毎回テーマが変わる少人数イベントを不定期開催。山梨県笛吹市を拠点に、Hosted by MaSU。">
-<meta property="og:title" content="笛吹BASE — 紹介制の隠れ家サロン">
-<meta property="og:description" content="人と文化が交差する、小さな社交場。毎回テーマが変わる少人数イベントを不定期開催。公式LINEで案内を受け取れます。">
+<title>笛吹BASE — 人が集まり、何かが始まる場所</title>
+<meta name="description" content="笛吹BASEは、山梨県笛吹市で不定期に開かれる小さな文化サロン。日本酒、ワイン、AI、旅、国際交流など、毎回テーマが変わる人と人が集まる場所です。">
+<meta property="og:title" content="笛吹BASE — 人が集まり、何かが始まる場所">
+<meta property="og:description" content="山梨県笛吹市で不定期に開かれる小さな文化サロン。次の集まりは公式LINEでお知らせします。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://qr-official.line.me/sid/M/412jqsnb.png">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笛吹BASE — 紹介制の隠れ家サロン">
-<meta name="twitter:description" content="人と文化が交差する、紹介制の隠れ家サロン。公式LINEで案内を受け取れます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:        #f5efe4;
-    --bg-2:      #efe6d6;
-    --paper:     #faf6ee;
-    --ink:       #111111;
-    --ink-soft:  #333333;
-    --line:      #d9ccb6;
-    --accent:    #9c6b3f;
-    --accent-2:  #c89b6a;
-    --leaf:      #7d8a5c;
-    --line-green:#06C755;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.9;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  .serif{font-family:"Cormorant Garamond",serif;}
-  .mincho{font-family:"Shippori Mincho",serif;}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
-  .narrow{max-width:760px;}
-
-  /* ---- ヘッダー ---- */
-  header.nav{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:20px 32px;
-    background:rgba(245,239,228,0);
-    transition:background .4s,box-shadow .4s,padding .4s;
-  }
-  header.nav.scrolled{
-    background:rgba(245,239,228,.92);
-    box-shadow:0 1px 0 var(--line);
-    padding:14px 32px;
-    backdrop-filter:blur(8px);
-  }
-  .brand{font-family:"Cormorant Garamond",serif;font-size:1.4rem;letter-spacing:.18em;font-weight:500;}
-  .brand b{color:var(--accent);font-weight:600;}
-  .nav-links{display:flex;gap:30px;font-size:.82rem;letter-spacing:.12em;}
-  .nav-links a{color:var(--ink-soft);text-decoration:none;transition:color .3s;}
-  .nav-links a:hover{color:var(--accent);}
-
-  /* ハンバーガーメニュー */
-  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
-  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s;}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .mobile-menu{
-    display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:40;
-    background:rgba(245,239,228,.97);backdrop-filter:blur(10px);
-    flex-direction:column;align-items:center;justify-content:center;gap:36px;
-  }
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{font-family:"Shippori Mincho",serif;font-size:1.3rem;letter-spacing:.22em;color:var(--ink);text-decoration:none;}
-  .mobile-menu a:hover{color:var(--accent);}
-  .mobile-menu .line-btn-sm{
-    margin-top:12px;display:inline-block;font-family:"Shippori Mincho",serif;
-    font-size:.9rem;letter-spacing:.14em;color:#fff;background:var(--line-green);
-    padding:12px 32px;border-radius:999px;text-decoration:none;
-  }
-
-  @media(max-width:720px){
-    .nav-links{display:none}
-    .hamburger{display:flex}
-  }
-
-  /* ---- Hero ---- */
-  .hero{
-    min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-    text-align:center;position:relative;padding:120px 28px 80px;
-    background:
-      radial-gradient(120% 80% at 50% 0%, rgba(200,155,106,.18), transparent 60%),
-      linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 100%);
-  }
-  .hero::after{
-    content:"";position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
-    width:1px;height:54px;background:linear-gradient(var(--accent),transparent);
-  }
-  .eyebrow{font-size:.74rem;letter-spacing:.42em;color:var(--accent);text-transform:uppercase;margin-bottom:28px;}
-  .hero h1{
-    font-family:"Cormorant Garamond",serif;font-weight:500;
-    font-size:clamp(3.4rem,11vw,7rem);letter-spacing:.06em;line-height:1;color:var(--ink);
-  }
-  .hero .ja-title{font-family:"Shippori Mincho",serif;font-size:clamp(1.05rem,3.4vw,1.5rem);letter-spacing:.32em;color:var(--ink-soft);margin-top:22px;font-weight:500;}
-  .hero .lead{max-width:600px;margin:34px auto 0;font-size:1rem;color:var(--ink-soft);}
-  .keywords{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
-  .keywords span{
-    font-family:"Shippori Mincho",serif;font-size:.85rem;letter-spacing:.18em;
-    padding:7px 18px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:rgba(255,255,255,.35);
-  }
-  .hero .sign{margin-top:40px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--accent);}
-  .hero .sign small{display:block;font-style:normal;font-family:"Zen Kaku Gothic New",sans-serif;font-size:.78rem;letter-spacing:.1em;color:var(--ink-soft);margin-top:4px;}
-  .hero-line-btn{
-    margin-top:36px;display:inline-flex;align-items:center;gap:10px;
-    font-family:"Shippori Mincho",serif;font-size:.9rem;letter-spacing:.14em;
-    color:#fff;background:var(--line-green);padding:13px 30px;border-radius:999px;
-    text-decoration:none;transition:opacity .3s,transform .3s;
-  }
-  .hero-line-btn:hover{opacity:.85;transform:translateY(-2px);}
-  .hero-line-btn svg{width:20px;height:20px;fill:#fff;flex:none;}
-
-  /* ---- セクション共通 ---- */
-  section{padding:96px 0;}
-  .sec-label{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent);font-size:1.05rem;letter-spacing:.05em;margin-bottom:10px;text-align:center;}
-  .sec-title{font-family:"Shippori Mincho",serif;font-size:clamp(1.5rem,4vw,2.1rem);text-align:center;letter-spacing:.12em;font-weight:600;margin-bottom:48px;}
-  .divider{width:46px;height:1px;background:var(--accent-2);margin:0 auto 48px;}
-
-  /* ---- コンセプト ---- */
-  .concept{background:var(--paper);}
-  .concept .narrow{margin:0 auto;text-align:center;}
-  .concept p{font-size:1.05rem;margin-bottom:22px;color:var(--ink-soft);}
-  .concept p.lead-line{font-family:"Shippori Mincho",serif;font-size:1.25rem;color:var(--ink);line-height:2.1;letter-spacing:.04em;}
-  .concept .scene{font-family:"Shippori Mincho",serif;color:var(--ink);font-size:1.1rem;line-height:2.3;margin-top:8px;}
-
-  /* ---- 基本方針 ---- */
-  .policy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
-  .policy-grid div{background:var(--bg);padding:26px 24px;font-family:"Shippori Mincho",serif;font-size:.98rem;letter-spacing:.04em;display:flex;align-items:center;gap:12px;}
-  .policy-grid div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2);flex:none;}
-
-  /* ---- イベント例 ---- */
-  .events{background:var(--bg-2);}
-  .ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;}
-  .ev{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:20px 22px;transition:transform .3s,box-shadow .3s,border-color .3s;}
-  .ev:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(124,90,40,.12);border-color:var(--accent-2);}
-  .ev .name{font-family:"Cormorant Garamond",serif;font-size:1.2rem;letter-spacing:.04em;margin-bottom:4px;}
-  .ev .desc{font-size:.86rem;color:var(--ink-soft);}
-
-  /* ---- 価値観 ---- */
-  .values{background:var(--paper);}
-  .val-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:34px 28px;}
-  .val{text-align:center;}
-  .val .num{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent-2);font-size:1rem;}
-  .val .en{font-family:"Cormorant Garamond",serif;font-size:1.5rem;letter-spacing:.06em;margin:6px 0 4px;}
-  .val .ja{font-size:.92rem;color:var(--ink-soft);}
-
-  /* ---- 参加方法 ---- */
-  .join-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  @media(max-width:680px){.join-grid{grid-template-columns:1fr}}
-  .join-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:34px 30px;}
-  .join-card .step{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent);font-size:.95rem;letter-spacing:.04em;}
-  .join-card h3{font-family:"Shippori Mincho",serif;font-size:1.2rem;letter-spacing:.08em;margin:6px 0 16px;font-weight:600;}
-  .join-card p{font-size:.95rem;color:var(--ink-soft);}
-  .join-card ul{list-style:none;margin-top:6px;}
-  .join-card li{font-size:.95rem;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:6px;}
-  .join-card li::before{content:"—";position:absolute;left:0;color:var(--accent-2);}
-
-  /* ---- 会場 ---- */
-  .venue{background:var(--bg-2);}
-  .venue-wrap{display:flex;align-items:center;gap:60px;max-width:860px;margin:0 auto;}
-  @media(max-width:720px){.venue-wrap{flex-direction:column;gap:32px;text-align:center;}}
-  .venue-icon{
-    flex:none;width:110px;height:110px;border-radius:50%;
-    background:var(--paper);border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    font-size:2.8rem;
-  }
-  .venue-body h3{font-family:"Shippori Mincho",serif;font-size:1.6rem;letter-spacing:.12em;font-weight:600;margin-bottom:14px;}
-  .venue-body p{font-size:1rem;color:var(--ink-soft);margin-bottom:10px;}
-  .venue-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
-  @media(max-width:720px){.venue-tags{justify-content:center;}}
-  .venue-tag{
-    font-family:"Shippori Mincho",serif;font-size:.82rem;letter-spacing:.14em;
-    padding:5px 16px;border:1px solid var(--accent-2);border-radius:999px;color:var(--accent);
-  }
-
-  /* ---- オーガナイザー ---- */
-  .organizer{background:var(--paper);}
-  .org-wrap{display:flex;align-items:center;gap:54px;}
-  @media(max-width:720px){.org-wrap{flex-direction:column;text-align:center;gap:30px;}}
-  .org-portrait{flex:none;}
-  .org-avatar{
-    width:170px;height:170px;border-radius:50%;
-    object-fit:cover;
-    box-shadow:0 14px 34px rgba(124,90,40,.22);
-    border:3px solid var(--line);
-  }
-  .org-name{font-family:"Cormorant Garamond",serif;font-size:2rem;letter-spacing:.06em;font-weight:500;margin:4px 0 18px;}
-  .org-body p{color:var(--ink-soft);font-size:1rem;margin-bottom:16px;}
-  .org-body p:last-child{margin-bottom:0;}
-
-  /* ---- 詳細（参加費・連絡） ---- */
-  .info{background:var(--bg-2);}
-  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
-  .info-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 28px;}
-  .info-card h3{font-family:"Shippori Mincho",serif;font-size:1.05rem;letter-spacing:.1em;margin-bottom:12px;font-weight:600;color:var(--accent);}
-  .info-card p{font-size:.92rem;color:var(--ink-soft);}
-
-  /* ---- LINE登録後の流れ ---- */
-  .line-flow{display:flex;gap:0;justify-content:center;flex-wrap:wrap;margin-top:44px;}
-  .line-step{display:flex;flex-direction:column;align-items:center;text-align:center;width:160px;padding:0 12px;position:relative;}
-  .line-step:not(:last-child)::after{
-    content:"→";position:absolute;right:-10px;top:28px;
-    font-size:1.2rem;color:var(--accent-2);
-  }
-  .line-step .num{
-    width:52px;height:52px;border-radius:50%;background:var(--accent);color:var(--paper);
-    display:flex;align-items:center;justify-content:center;
-    font-family:"Cormorant Garamond",serif;font-size:1.2rem;margin-bottom:12px;
-  }
-  .line-step p{font-size:.86rem;color:var(--ink-soft);line-height:1.7;}
-  @media(max-width:600px){
-    .line-flow{flex-direction:column;align-items:center;gap:20px;}
-    .line-step:not(:last-child)::after{content:"↓";right:auto;top:auto;bottom:-18px;}
-  }
-
-  /* ---- CTA / フッター ---- */
-  .cta{text-align:center;background:
-      radial-gradient(120% 90% at 50% 100%, rgba(156,107,63,.16), transparent 60%),
-      var(--bg);padding:110px 28px;}
-  .cta .serif-big{font-family:"Cormorant Garamond",serif;font-size:clamp(2.2rem,7vw,3.6rem);letter-spacing:.05em;font-weight:500;}
-  .cta p{color:var(--ink-soft);max-width:520px;margin:18px auto 34px;font-size:1rem;}
-  .btn{display:inline-block;font-family:"Shippori Mincho",serif;letter-spacing:.18em;font-size:.95rem;color:var(--paper);background:var(--accent);padding:15px 42px;border-radius:999px;text-decoration:none;transition:background .3s,transform .3s;}
-  .btn:hover{background:#84582f;transform:translateY(-2px);}
-
-  .line-cta{display:flex;flex-direction:column;align-items:center;gap:24px;margin-top:34px;}
-  .line-add-btn{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:"Shippori Mincho",serif;font-size:1rem;letter-spacing:.14em;
-    color:#fff;background:var(--line-green);padding:15px 38px;border-radius:999px;
-    text-decoration:none;transition:opacity .3s,transform .3s;
-  }
-  .line-add-btn:hover{opacity:.85;transform:translateY(-2px);}
-  .line-add-btn svg{width:22px;height:22px;fill:#fff;flex:none;}
-
-  /* QRはモバイルでは非表示、PCのみ */
-  .line-qr-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;}
-  .line-qr-wrap img.qr{width:130px;height:130px;border-radius:12px;border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.08);}
-  .line-qr-wrap span{font-size:.76rem;color:var(--ink-soft);letter-spacing:.08em;}
-  @media(max-width:720px){.line-qr-wrap{display:none}}
-
-  .cta-note{font-size:.8rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:6px;}
-
-  footer{background:var(--ink);color:#e8dfce;text-align:center;padding:46px 28px;}
-  footer .fbrand{font-family:"Cormorant Garamond",serif;font-size:1.4rem;letter-spacing:.2em;margin-bottom:8px;}
-  footer .fbrand b{color:var(--accent-2);}
-  footer p{font-size:.8rem;color:#b5a98f;letter-spacing:.08em;}
-
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
-  .reveal.in{opacity:1;transform:none;}
+:root{
+  --bg:#f6efe3;
+  --bg-2:#eee2cf;
+  --paper:#fffaf1;
+  --ink:#17130f;
+  --soft:#5f5548;
+  --muted:#8d7d68;
+  --line:#ddcdb5;
+  --accent:#9b6537;
+  --accent-2:#c7965d;
+  --green:#06C755;
+  --dark:#19130e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 32px;color:#fff;transition:.35s ease}
+.nav.scrolled{background:rgba(246,239,227,.92);color:var(--ink);box-shadow:0 1px 0 rgba(221,205,181,.8);backdrop-filter:blur(10px);padding:14px 32px}
+.logo{font-family:"Cormorant Garamond",serif;font-size:1.35rem;letter-spacing:.2em;text-decoration:none;font-weight:600}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:.82rem;letter-spacing:.12em}
+.nav-links a{text-decoration:none;opacity:.9}
+.nav-cta{border:1px solid currentColor;border-radius:999px;padding:9px 16px}
+.hero{min-height:100svh;position:relative;display:grid;place-items:end start;overflow:hidden;background:linear-gradient(145deg,#1d130a 0%,#4b2e17 42%,#d0a169 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 68% 28%,rgba(255,227,188,.25),transparent 34%),linear-gradient(90deg,rgba(0,0,0,.66),rgba(0,0,0,.24),rgba(0,0,0,.12));z-index:1}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,var(--bg));z-index:2}
+.hero-inner{position:relative;z-index:3;color:#fff;padding:170px 0 110px;max-width:820px}
+.eyebrow{font-size:.76rem;letter-spacing:.42em;text-transform:uppercase;color:#f2c58b;margin-bottom:22px;font-weight:500}
+h1{font-family:"Shippori Mincho",serif;font-size:clamp(2.7rem,7vw,6.2rem);line-height:1.14;font-weight:600;letter-spacing:.04em;margin-bottom:24px}
+.hero-lead{font-size:clamp(1rem,2vw,1.22rem);line-height:2;color:#f7ead9;max-width:640px;margin-bottom:36px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;text-decoration:none;padding:15px 26px;font-weight:500;letter-spacing:.08em;transition:.25s ease}.btn-primary{background:#fff;color:var(--ink)}.btn-primary:hover,.btn-outline:hover{transform:translateY(-2px);opacity:.88}.btn-outline{border:1px solid rgba(255,255,255,.72);color:#fff}.btn-line{background:var(--green);color:#fff}
+.section{padding:105px 0}.section.alt{background:var(--bg-2)}.section-head{margin-bottom:46px}.label{font-family:"Cormorant Garamond",serif;color:var(--accent);letter-spacing:.16em;font-size:1rem;margin-bottom:8px;text-transform:uppercase}.section h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.85rem,4.2vw,3.2rem);line-height:1.45;letter-spacing:.05em;font-weight:600}.lead{color:var(--soft);font-size:1.02rem;max-width:720px;margin-top:20px}
+.intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}.intro-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px}.intro-card p{color:var(--soft);margin-bottom:18px}.intro-card strong{color:var(--ink)}.mini-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}.mini{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:.92rem;color:var(--soft)}.visual-block{min-height:500px;border-radius:30px;background:linear-gradient(145deg,#f3d8b6,#9b6537 55%,#27170d);position:relative;overflow:hidden}.visual-block:before{content:"FUEFUKI\A BASE";white-space:pre;position:absolute;left:28px;bottom:28px;font-family:"Cormorant Garamond",serif;font-size:4rem;line-height:.9;letter-spacing:.12em;color:rgba(255,255,255,.38)}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.event-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden}.event-img{height:190px;background:linear-gradient(135deg,#d8b07b,#6f4422);position:relative}.event-img:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 25%,rgba(255,255,255,.28),transparent 35%)}.event-card:nth-child(2) .event-img{background:linear-gradient(135deg,#c7a16f,#2d261d)}.event-card:nth-child(3) .event-img{background:linear-gradient(135deg,#d2c0a4,#5a321e)}.event-card:nth-child(4) .event-img{background:linear-gradient(135deg,#b5c4b1,#3b4a37)}.event-card:nth-child(5) .event-img{background:linear-gradient(135deg,#e2b678,#783b22)}.event-card:nth-child(6) .event-img{background:linear-gradient(135deg,#c8b095,#2a1a12)}.event-body{padding:22px}.event-body h3{font-family:"Shippori Mincho",serif;font-size:1.14rem;margin-bottom:8px}.event-body p{font-size:.92rem;color:var(--soft);line-height:1.8}.note{margin-top:24px;font-size:.9rem;color:var(--muted)}
+.host{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:center}.host-photo{height:480px;border-radius:30px;background:linear-gradient(160deg,#2d2118,#a27143 65%,#ecd0aa);position:relative;overflow:hidden}.host-photo:after{content:"Hosted by\A MaSU";white-space:pre;position:absolute;left:28px;bottom:28px;font-family:"Cormorant Garamond",serif;font-size:2.8rem;line-height:1;color:rgba(255,255,255,.56)}.host-text p{color:var(--soft);margin-bottom:18px}.story-link{display:inline-flex;margin-top:12px;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:4px;font-weight:500}
+.access-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.access-item{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px}.access-item .icon{font-size:1.6rem;margin-bottom:10px}.access-item h3{font-size:1rem;margin-bottom:6px}.access-item p{font-size:.9rem;color:var(--soft);line-height:1.75}.invite{background:var(--dark);color:#f8eddd;text-align:center;padding:110px 22px}.invite h2{font-family:"Shippori Mincho",serif;font-size:clamp(2rem,5vw,4rem);line-height:1.35;margin-bottom:18px}.invite p{color:#cdbda8;margin-bottom:34px}.invite .btns{justify-content:center}footer{background:#0f0b08;color:#c8b8a0;text-align:center;padding:38px 22px;font-size:.82rem;letter-spacing:.08em}.reveal{opacity:0;transform:translateY(22px);transition:.75s ease}.reveal.in{opacity:1;transform:none}
+@media(max-width:860px){.nav-links a:not(.nav-cta){display:none}.intro-grid,.host{grid-template-columns:1fr}.events-grid{grid-template-columns:1fr 1fr}.access-grid{grid-template-columns:1fr 1fr}.visual-block,.host-photo{min-height:380px;height:380px}}
+@media(max-width:560px){.nav{padding:18px 20px}.nav.scrolled{padding:12px 20px}.wrap{width:min(100% - 34px,1120px)}.hero-inner{padding:150px 0 86px}.section{padding:76px 0}.events-grid,.access-grid,.mini-list{grid-template-columns:1fr}.btn{width:100%}.visual-block:before{font-size:3rem}.host-photo:after{font-size:2.2rem}}
 </style>
 </head>
 <body>
-
 <header class="nav" id="nav">
-  <div class="brand">笛吹BASE</div>
+  <a class="logo" href="index.html">笛吹BASE</a>
   <nav class="nav-links">
-    <a href="#concept">コンセプト</a>
-    <a href="#events">イベント</a>
-    <a href="#values">価値観</a>
-    <a href="fuefuki-base.html">笛吹BASEとは</a>
-    <a href="#venue">会場</a>
-    <a href="#organizer">主催者</a>
-    <a href="#join">参加方法</a>
-    <a href="#contact">連絡</a>
+    <a href="#about">ABOUT</a>
+    <a href="#events">EVENT</a>
+    <a href="#access">ACCESS</a>
+    <a class="nav-cta" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">LINE</a>
   </nav>
-  <button class="hamburger" id="hamburger" aria-label="メニュー">
-    <span></span><span></span><span></span>
-  </button>
 </header>
 
-<!-- モバイルメニュー -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#concept" class="mobile-link">コンセプト</a>
-  <a href="#events" class="mobile-link">イベント</a>
-  <a href="#values" class="mobile-link">価値観</a>
-  <a href="fuefuki-base.html" class="mobile-link">笛吹BASEとは</a>
-  <a href="#venue" class="mobile-link">会場</a>
-  <a href="#organizer" class="mobile-link">主催者</a>
-  <a href="#join" class="mobile-link">参加方法</a>
-  <a href="#contact" class="mobile-link">連絡</a>
-  <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="line-btn-sm">公式LINEで案内を受け取る</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="eyebrow">Invitation Only</div>
-  <h1>笛吹BASE</h1>
-  <div class="ja-title">紹介制の隠れ家サロン</div>
-  <p class="lead">人と文化が交差する、小さな社交場。<br>毎回異なるテーマのもと、世界のお酒、食、旅、AI、アート、ゲーム、語学などを楽しみます。</p>
-  <div class="keywords">
-    <span>住所非公開</span>
-    <span>少人数</span>
-    <span>不定期開催</span>
-  </div>
-  <a class="hero-line-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-    公式LINEで案内を受け取る
-  </a>
-  <div class="sign">Hosted by MaSU</div>
-</section>
-
-<!-- CONCEPT -->
-<section class="concept" id="concept">
-  <div class="wrap narrow">
-    <div class="sec-label">Concept</div>
-    <div class="divider"></div>
-    <p class="lead-line">毎回テーマが変わり、集まる人も変わる。<br>人との出会いと、新しい発見を楽しむ。</p>
-    <p class="scene">笛吹BASEは、現代版の文化サロンです。</p>
-  </div>
-</section>
-
-<!-- イベント例 -->
-<section class="events" id="events">
-  <div class="wrap">
-    <div class="sec-label">Gatherings</div>
-    <h2 class="sec-title">イベント例</h2>
-    <p style="text-align:center;color:var(--ink-soft);margin:-28px auto 44px;max-width:560px;font-size:.95rem;">毎回テーマが変わります。これまでの一例です。</p>
-    <div class="ev-grid">
-      <div class="ev"><div class="name">Sake Night</div><div class="desc">日本酒会</div></div>
-      <div class="ev"><div class="name">Wine Night</div><div class="desc">ワイン会</div></div>
-      <div class="ev"><div class="name">International Night</div><div class="desc">国際交流を楽しむ夜</div></div>
-      <div class="ev"><div class="name">Book Night</div><div class="desc">読書会</div></div>
-      <div class="ev"><div class="name">Card Game Night</div><div class="desc">カードゲーム会</div></div>
-      <div class="ev"><div class="name">Walking</div><div class="desc">ウォーキングイベント</div></div>
+<main>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">FUEFUKI BASE</div>
+      <h1>人が集まり、<br>何かが始まる場所。</h1>
+      <p class="hero-lead">日本酒の日もあれば、AIを語る日もある。テーマも、集まる人も、毎回違う。笛吹BASEは、山梨県笛吹市で不定期に開かれる小さな文化サロンです。</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#events">どんな集まり？</a>
+        <a class="btn btn-outline" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">次回案内を受け取る</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 価値観 -->
-<section class="values" id="values">
-  <div class="wrap">
-    <div class="sec-label">What We Cherish</div>
-    <h2 class="sec-title">大切にしたい価値観</h2>
-    <div class="val-grid">
-      <div class="val"><div class="num">01</div><div class="en">Respect</div><div class="ja">お互いを尊重する。</div></div>
-      <div class="val"><div class="num">02</div><div class="en">Curiosity</div><div class="ja">新しい価値観や文化を楽しむ。</div></div>
-      <div class="val"><div class="num">03</div><div class="en">Human Connection</div><div class="ja">人とのつながりを大切にする。</div></div>
-      <div class="val"><div class="num">04</div><div class="en">Diversity</div><div class="ja">様々なテーマや人との出会いを楽しむ。</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 会場 -->
-<section class="venue" id="venue">
-  <div class="wrap">
-    <div class="sec-label">The Venue</div>
-    <h2 class="sec-title">笛吹BASE</h2>
-    <div class="venue-wrap">
-      <div class="venue-icon">🏠</div>
-      <div class="venue-body">
-        <h3>住所非公開の隠れ家</h3>
-        <p>山梨県笛吹市、石和温泉駅から徒歩13分。温泉と果樹園の町に、ひっそりと佇む空間です。</p>
-        <p>参加者にのみ、イベント前日に詳細な住所をお伝えしています。場所を知っているのは招かれた人だけ。それが笛吹BASEの流儀です。</p>
-        <div class="venue-tags">
-          <span class="venue-tag">住所非公開</span>
-          <span class="venue-tag">石和温泉駅 徒歩13分</span>
-          <span class="venue-tag">山梨県笛吹市</span>
-          <span class="venue-tag">少人数限定</span>
+  <section class="section" id="about">
+    <div class="wrap intro-grid">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="label">ABOUT</div>
+          <h2>笛吹BASEは、<br>“店”ではありません。</h2>
+          <p class="lead">決まった営業時間も、固定されたジャンルもありません。その日ごとにテーマが変わり、集まる人も変わる。大切にしているのは、人との出会い、会話、好奇心、そして新しい発見です。</p>
+        </div>
+        <div class="intro-card">
+          <p><strong>何をするかよりも、誰と過ごすか。</strong></p>
+          <p>日本酒を楽しむ夜もあれば、たこ焼きを囲む日もある。AIや旅、地域、仕事、文化について語り合う日もある。</p>
+          <p>笛吹BASEは、そんなリアルな時間を大切にしたい人たちが集まる場所です。</p>
+          <div class="mini-list">
+            <div class="mini">🍶 日本酒・ワイン</div>
+            <div class="mini">🤖 AI・働き方</div>
+            <div class="mini">🌏 国際交流・旅</div>
+            <div class="mini">🐙 料理・たこ焼き</div>
+          </div>
         </div>
       </div>
+      <div class="visual-block reveal" aria-label="笛吹BASEのイメージビジュアル"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- オーガナイザー -->
-<section class="organizer" id="organizer">
-  <div class="wrap org-wrap">
-    <div class="org-portrait">
-      <img class="org-avatar" src="プロフィール.png" alt="MaSU">
+  <section class="section alt" id="events">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="label">GATHERINGS</div>
+        <h2>これまでの開催風景から、<br>笛吹BASEへ。</h2>
+        <p class="lead">笛吹BASEはこれから始まる場所です。掲載する写真は、MaSUがこれまで日本・アイルランド・ドバイなどで開催してきた交流イベントの雰囲気をもとにしています。これから笛吹市で、新しい集まりを育てていきます。</p>
+      </div>
+      <div class="events-grid">
+        <article class="event-card reveal"><div class="event-img"></div><div class="event-body"><h3>日本酒会</h3><p>日本酒をきっかけに、初対面同士でも自然と会話が生まれる夜。</p></div></article>
+        <article class="event-card reveal"><div class="event-img"></div><div class="event-body"><h3>ワイン・ローカル会</h3><p>山梨のワインや地域の食を楽しみながら、ゆるやかにつながる時間。</p></div></article>
+        <article class="event-card reveal"><div class="event-img"></div><div class="event-body"><h3>国際交流</h3><p>旅、海外生活、文化の違いをテーマに、世界と地域が交わる場。</p></div></article>
+        <article class="event-card reveal"><div class="event-img"></div><div class="event-body"><h3>AI交流会</h3><p>ChatGPTやAI活用について、初心者でも気軽に話せる勉強会。</p></div></article>
+        <article class="event-card reveal"><div class="event-img"></div><div class="event-body"><h3>たこ焼き会</h3><p>肩書きよりも、まずは同じテーブルを囲む。会話が生まれる人気企画。</p></div></article>
+        <article class="event-card reveal"><div class="event-img"></div><div class="event-body"><h3>読書・対話会</h3><p>本、仕事、生き方、地域の未来。少人数でじっくり語り合う時間。</p></div></article>
+      </div>
+      <p class="note reveal">※実際の笛吹BASE開催写真は、今後のイベント実施後に順次差し替えていきます。</p>
     </div>
-    <div class="org-body">
-      <div class="sec-label" style="text-align:left;">Organizer</div>
-      <h2 class="org-name">MaSU</h2>
-      <p>これまで日本、アイルランド、ドバイなどで、さまざまなイベントやコミュニティを企画・運営。日本酒、旅、AI、アートなど、ジャンルを超えた出会いを大切にし、人と文化が交差する場づくりを続けてきました。</p>
-      <p>2026年6月に山梨県笛吹市へ移住。現在は地域プロモーションやコミュニティづくりにも携わりながら、国内外で培った経験を活かし、新たなつながりやアイデアが生まれる場をつくっています。</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- 参加方法 -->
-<section id="join">
-  <div class="wrap">
-    <div class="sec-label">How to Join</div>
-    <h2 class="sec-title">参加方法</h2>
-    <div class="join-grid">
-      <div class="join-card">
-        <div class="step">First Visit</div>
-        <h3>初回参加</h3>
-        <p>以下のいずれかでご参加いただけます。</p>
-        <ul>
-          <li>主催者からの招待</li>
-          <li>参加者からの紹介</li>
-        </ul>
-      </div>
-      <div class="join-card">
-        <div class="step">From Second Time</div>
-        <h3>2回目以降</h3>
-        <p>友人1名の同行が可能です。<br>信頼の輪を、少しずつ広げていきます。</p>
+  <section class="section" id="host">
+    <div class="wrap host">
+      <div class="host-photo reveal" style="background:none;padding:0;overflow:hidden"><img src="プロフィール.png" style="width:100%;height:100%;object-fit:cover;border-radius:30px;" alt="MaSU"></div>
+      <div class="host-text reveal">
+        <div class="label">HOST</div>
+        <h2>Hosted by MaSU</h2>
+        <p>世界40カ国を旅し、日本・アイルランド・ドバイでイベントやコミュニティを運営してきたMaSU。</p>
+        <p>2026年6月、山梨県笛吹市に移住。これまで海外や各地で育ててきた「人が集まる場づくり」を、今度は笛吹市で始めます。</p>
+        <p>AIが進化し、あらゆることがオンラインで完結する時代だからこそ、同じ場所に集まり、同じ時間を過ごす価値を大切にしています。</p>
+        <a class="story-link" href="fuefuki-base.html">笛吹BASEが生まれた理由を読む →</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 詳細 -->
-<section class="info" id="contact">
-  <div class="wrap">
-    <div class="sec-label">Details</div>
-    <h2 class="sec-title">参加費・お問い合わせ</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>参加費について</h3>
-        <p>開催内容やテーマに応じて参加費を設定しています。気軽な交流会から特別なイベントまで内容が異なります。目安として¥3,000〜¥8,000程度。詳細は各イベントの案内でご確認ください。</p>
+  <section class="section alt" id="access">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="label">ACCESS</div>
+        <h2>東京から約90分。<br>温泉とワインのまちへ。</h2>
+        <p class="lead">笛吹BASEは、山梨県笛吹市・石和温泉エリアにあります。住所は招待された方のみにお伝えします。</p>
       </div>
-      <div class="info-card">
-        <h3>連絡手段</h3>
-        <p>次回イベントの案内、参加申込、個別のご連絡は公式LINEで承っています。友だち追加後、イベント開催が決まり次第ご案内します。</p>
+      <div class="access-grid">
+        <div class="access-item reveal"><div class="icon">🚃</div><h3>新宿から約90分</h3><p>特急かいじ・あずさで石和温泉駅へ。</p></div>
+        <div class="access-item reveal"><div class="icon">🚶</div><h3>駅から徒歩圏内</h3><p>石和温泉駅から徒歩でアクセス可能。</p></div>
+        <div class="access-item reveal"><div class="icon">♨️</div><h3>温泉エリア</h3><p>日帰り温泉や足湯も楽しめる地域です。</p></div>
+        <div class="access-item reveal"><div class="icon">🍷</div><h3>ワインのまち</h3><p>ワイナリーやクラフトビールも徒歩圏内。</p></div>
       </div>
     </div>
+  </section>
 
-    <!-- LINE登録後の流れ -->
-    <div class="line-flow">
-      <div class="line-step">
-        <div class="num">1</div>
-        <p>公式LINEを<br>友だち追加</p>
-      </div>
-      <div class="line-step">
-        <div class="num">2</div>
-        <p>イベント開催が<br>決まり次第案内が届く</p>
-      </div>
-      <div class="line-step">
-        <div class="num">3</div>
-        <p>参加申込フォームで<br>エントリー</p>
-      </div>
-      <div class="line-step">
-        <div class="num">4</div>
-        <p>MaSUから<br>詳細をご連絡</p>
+  <section class="invite">
+    <div class="wrap reveal">
+      <h2>次は、あなたも。</h2>
+      <p>笛吹BASEのイベント案内は、公式LINEでお知らせします。</p>
+      <div class="btns">
+        <a class="btn btn-line" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">LINEで次回案内を受け取る</a>
+        <a class="btn btn-outline" href="fuefuki-base.html">笛吹BASEとは？</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="serif-big">Join the Circle</div>
-  <p>次回の集まりへ。少人数の、あたたかな時間にご招待します。</p>
-  <div class="line-cta">
-    <a class="line-add-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      友だち追加
-    </a>
-    <div class="line-qr-wrap">
-      <img class="qr" src="https://qr-official.line.me/sid/M/412jqsnb.png" alt="笛吹BASE 公式LINE QRコード">
-      <span>QRコードで友だち追加（PC）</span>
-    </div>
-  </div>
-  <p class="cta-note">Invitation Only ／ Hosted by MaSU</p>
-</section>
+  </section>
+</main>
 
 <footer>
-  <div class="fbrand">笛吹BASE</div>
-  <p>紹介制の隠れ家サロン ／ 人と文化が交差する、小さな社交場。</p>
+  <p>笛吹BASE ／ Hosted by MaSU ／ 山梨県笛吹市</p>
 </footer>
 
 <script>
-  // ナビ背景
-  const nav=document.getElementById('nav');
-  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
-
-  // ハンバーガーメニュー
-  const hamburger=document.getElementById('hamburger');
-  const mobileMenu=document.getElementById('mobileMenu');
-  hamburger.addEventListener('click',()=>{
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
-  });
-  document.querySelectorAll('.mobile-link, .line-btn-sm').forEach(a=>{
-    a.addEventListener('click',()=>{
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow='';
-    });
-  });
-
-  // reveal
-  document.querySelectorAll('section > .wrap, .concept .narrow').forEach(el=>el.classList.add('reveal'));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
