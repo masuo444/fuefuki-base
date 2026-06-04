@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>笛吹BASEとは — MaSUが笛吹市に移住した理由</title>
+<meta name="description" content="4年半のアドレスホッパーを経て、山梨県笛吹市に拠点を構えたMaSU。笛吹BASEが生まれた背景と、この場所に込めた思いを語ります。">
+<meta property="og:title" content="笛吹BASEとは — MaSUが笛吹市に移住した理由">
+<meta property="og:description" content="世界40カ国を旅したMaSUが、なぜ山梨県笛吹市に根を下ろしたのか。笛吹BASEが生まれた物語。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5efe4;--bg-2:#efe6d6;--paper:#faf6ee;
+    --ink:#111111;--ink-soft:#333333;
+    --line:#d9ccb6;--accent:#9c6b3f;--accent-2:#c89b6a;
+    --line-green:#06C755;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;}
+
+  /* nav */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 32px;background:rgba(245,239,228,0);transition:background .4s,box-shadow .4s,padding .4s;}
+  header.nav.scrolled{background:rgba(245,239,228,.92);box-shadow:0 1px 0 var(--line);padding:14px 32px;backdrop-filter:blur(8px);}
+  .brand{font-family:"Cormorant Garamond",serif;font-size:1.4rem;letter-spacing:.18em;font-weight:500;text-decoration:none;color:var(--ink);}
+  .back-link{font-size:.82rem;letter-spacing:.1em;color:var(--ink-soft);text-decoration:none;display:flex;align-items:center;gap:6px;}
+  .back-link:hover{color:var(--accent);}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* hero */
+  .story-hero{
+    min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:120px 28px 64px;
+    background:radial-gradient(120% 80% at 50% 0%, rgba(200,155,106,.2), transparent 60%),
+               linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+  }
+  .story-hero .wrap{width:100%;}
+  .eyebrow{font-size:.74rem;letter-spacing:.42em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;}
+  .story-hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(2.4rem,7vw,4rem);letter-spacing:.04em;line-height:1.15;margin-bottom:24px;}
+  .story-hero .lead{font-size:1.05rem;color:var(--ink-soft);max-width:560px;line-height:1.9;}
+
+  /* body */
+  .story-body{padding:80px 0;}
+  .story-body section{margin-bottom:72px;}
+  .chapter{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent);font-size:1rem;letter-spacing:.06em;margin-bottom:12px;}
+  .story-body h2{font-family:"Shippori Mincho",serif;font-size:1.5rem;letter-spacing:.08em;font-weight:600;margin-bottom:20px;}
+  .story-body p{font-size:1rem;color:var(--ink-soft);margin-bottom:18px;line-height:1.95;}
+  .story-body p strong{color:var(--ink);font-weight:600;}
+
+  /* quote */
+  .quote{
+    border-left:3px solid var(--accent-2);padding:20px 28px;
+    background:var(--paper);margin:32px 0;border-radius:0 8px 8px 0;
+  }
+  .quote p{font-family:"Shippori Mincho",serif;font-size:1.1rem;color:var(--ink);line-height:2;margin:0;}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0;border-radius:8px;overflow:hidden;}
+  .stat{background:var(--paper);padding:24px 20px;text-align:center;}
+  .stat .num{font-family:"Cormorant Garamond",serif;font-size:2.2rem;font-weight:500;color:var(--accent);display:block;}
+  .stat .label{font-size:.8rem;color:var(--ink-soft);letter-spacing:.1em;margin-top:4px;}
+
+  /* access */
+  .access-box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px 32px;margin:32px 0;}
+  .access-box h3{font-family:"Shippori Mincho",serif;font-size:1.1rem;font-weight:600;margin-bottom:16px;color:var(--accent);}
+  .access-item{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;font-size:.95rem;}
+  .access-item .icon{font-size:1rem;flex:none;}
+  .access-item .text{color:var(--ink-soft);}
+  .access-item .text strong{color:var(--ink);}
+
+  /* divider */
+  .hr{width:46px;height:1px;background:var(--accent-2);margin:0 0 40px;}
+
+  /* CTA */
+  .story-cta{background:var(--bg-2);padding:80px 28px;text-align:center;}
+  .story-cta h2{font-family:"Cormorant Garamond",serif;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:500;letter-spacing:.05em;margin-bottom:16px;}
+  .story-cta p{color:var(--ink-soft);font-size:1rem;margin-bottom:32px;}
+  .line-add-btn{display:inline-flex;align-items:center;gap:10px;font-family:"Shippori Mincho",serif;font-size:1rem;letter-spacing:.14em;color:#fff;background:var(--line-green);padding:15px 38px;border-radius:999px;text-decoration:none;transition:opacity .3s,transform .3s;}
+  .line-add-btn:hover{opacity:.85;transform:translateY(-2px);}
+  .line-add-btn svg{width:22px;height:22px;fill:#fff;flex:none;}
+  .back-btn{display:inline-block;margin-top:16px;font-size:.85rem;color:var(--ink-soft);text-decoration:none;letter-spacing:.1em;}
+  .back-btn:hover{color:var(--accent);}
+
+  footer{background:var(--ink);color:#e8dfce;text-align:center;padding:40px 28px;}
+  footer .fbrand{font-family:"Cormorant Garamond",serif;font-size:1.3rem;letter-spacing:.2em;margin-bottom:8px;}
+  footer p{font-size:.8rem;color:#b5a98f;letter-spacing:.08em;}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:600px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="index.html">笛吹BASE</a>
+  <a class="back-link" href="index.html">← トップへ戻る</a>
+</header>
+
+<!-- Hero -->
+<div class="story-hero">
+  <div class="wrap">
+    <div class="eyebrow">Our Story</div>
+    <h1>4年半、世界を旅して<br>たどり着いた場所。</h1>
+    <p class="lead">アドレスホッパーとして40カ国を渡り歩いたMaSUが、なぜ山梨県笛吹市に根を下ろしたのか。笛吹BASEが生まれた背景と、この場所に込めた思いを語ります。</p>
+  </div>
+</div>
+
+<!-- Body -->
+<div class="story-body">
+  <div class="wrap">
+
+    <!-- Chapter 1 -->
+    <section class="reveal">
+      <div class="chapter">Chapter 1</div>
+      <div class="hr"></div>
+      <h2>住所のない生活を、4年半続けた。</h2>
+      <p>2022年頃から、僕は「アドレスホッパー」として生きてきました。日本と海外を行き来しながら、世界40カ国以上を旅し、各地のイベントやコミュニティに関わり続けた。</p>
+      <p>拠点を持たないことで、どこにでも行けた。でも同時に、「ここが自分の場所だ」と言える場所がなかった。</p>
+      <div class="quote">
+        <p>「いつか拠点をちゃんと持って活動しよう。そう思っていたタイミングで、この機会をいただいた。」</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="num">40+</span><span class="label">訪問国数</span></div>
+        <div class="stat"><span class="num">4.5年</span><span class="label">アドレスホッパー歴</span></div>
+        <div class="stat"><span class="num">2026</span><span class="label">笛吹市移住</span></div>
+      </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="reveal">
+      <div class="chapter">Chapter 2</div>
+      <div class="hr"></div>
+      <h2>笛吹市との出会いは、偶然ではなかった。</h2>
+      <p>2026年1月、地域活性化を手がける株式会社あるやうむとの面談で「いい場所があれば紹介してほしい」と話していました。</p>
+      <p>4月、「笛吹市でデジタルコミュニティの運営をやりませんか」とお誘いをいただき、2日後には現地へ視察に。ぶどう畑とワイナリーが広がる景色、温泉地の穏やかな空気、そして市を本気で盛り上げようとしている人たちに出会い、<strong>ここだ</strong>、と思いました。</p>
+      <p>仕組みとしては笛吹市の「地域おこし協力隊」という形ですが、<strong>笛吹市・株式会社あるやうむ・MaSUの3者で進める特殊なプロジェクト</strong>で、全国でも27事例目というまだ珍しい形です。</p>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="reveal">
+      <div class="chapter">Chapter 3</div>
+      <div class="hr"></div>
+      <h2>笛吹BASEは、人が集まる「余白」だ。</h2>
+      <p>僕のミッションは、笛吹市に住む人と、笛吹市が好きだけど住めない人、東京や大阪にいる人——その垣根を越えてつないでいくことです。</p>
+      <p>笛吹BASEは、その活動の拠点。ただの部屋ではなく、人と人が偶然出会い、予期せぬ話が生まれる「余白」のある場所にしたいと思っています。</p>
+      <div class="quote">
+        <p>「新宿から特急1本、約90分。温泉もワイナリーも、徒歩圏内にある。東京で疲れたとき、リフレッシュしながら人に会いに来てほしい。」</p>
+      </div>
+      <div class="access-box">
+        <h3>笛吹BASEへのアクセス</h3>
+        <div class="access-item"><span class="icon">🚃</span><span class="text">新宿駅 → 石和温泉駅（特急かいじ/あずさ）<strong>約90分</strong></span></div>
+        <div class="access-item"><span class="icon">🚶</span><span class="text">石和温泉駅から<strong>徒歩13分</strong></span></div>
+        <div class="access-item"><span class="icon">🍷</span><span class="text">徒歩圏内にワイナリー、クラフトビール醸造所、日帰り温泉</span></div>
+        <div class="access-item"><span class="icon">📍</span><span class="text">住所は<strong>招待された方のみ</strong>にお伝えします</span></div>
+      </div>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section class="reveal">
+      <div class="chapter">Chapter 4</div>
+      <div class="hr"></div>
+      <h2>世界を旅して学んだのは、<br>「場所」の力だった。</h2>
+      <p>伝統工芸ブランド「FOMUS」として日本の木枡を世界に届けてきた経験、AI導入コンサルとして企業を支援してきた経験——すべてが笛吹BASEに流れ込んでいます。</p>
+      <p>笛吹市のワインやぶどう、農産物と木枡を掛け合わせた新しいコラボレーション。リアルで会えるAIの学びの場。そして、テーマを変えながら続く<strong>紹介制の隠れ家サロン</strong>。</p>
+      <p>これまでの活動を枯らすことなく、むしろすべてをここに集めて、新しい何かを生み出していきたいと思っています。</p>
+    </section>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="story-cta">
+  <h2>笛吹BASEの次の集まりへ。</h2>
+  <p>公式LINEで友だち追加すると、イベントの案内が届きます。</p>
+  <a class="line-add-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    友だち追加
+  </a>
+  <br>
+  <a class="back-btn" href="index.html">← 笛吹BASEのトップへ</a>
+</section>
+
+<footer>
+  <div class="fbrand">笛吹BASE</div>
+  <p>紹介制の隠れ家サロン ／ Hosted by MaSU ／ 山梨県笛吹市</p>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
