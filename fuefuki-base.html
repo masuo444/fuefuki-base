@@ -68,6 +68,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* FOOTER */
 footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.25);text-align:center;padding:28px;font-size:.72rem;letter-spacing:.18em;}
 
+/* STORY PHOTO */
+.story-photo{width:100%;aspect-ratio:16/9;overflow:hidden;margin-top:80px;}
+.story-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+@media(max-width:600px){.story-photo{aspect-ratio:4/3;margin-top:56px;}}
+
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:.9s ease;}
 .rv.in{opacity:1;transform:none;}
@@ -105,6 +110,9 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
     <div class="ch-emphasis">場所は違っても、本当に価値のあるものは変わらない。</div>
     <p class="ch-body">そう感じるようになりました。</p>
   </div>
+  <div class="story-photo rv">
+    <img src="story-ch1.jpg" alt="ダブリンでの国際コミュニティ">
+  </div>
 </section>
 
 <!-- CHAPTER 2 -->
@@ -118,6 +126,9 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
     <p class="ch-body">どんな仕事をしているか。どこに住んでいるか。どんな肩書きを持っているか。</p>
     <div class="ch-emphasis">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
     <p class="ch-body">そう考えるようになりました。</p>
+  </div>
+  <div class="story-photo rv">
+    <img src="story-ch2.jpg" alt="海外での食事と出会い">
   </div>
 </section>
 
@@ -143,6 +154,9 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
     <p class="ch-body">特別なイベントもあれば、何気ない集まりもある。</p>
     <div class="ch-emphasis">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
     <p class="ch-body">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
+  </div>
+  <div class="story-photo rv">
+    <img src="story-ch4.jpg" alt="日本酒を囲む仲間たち">
   </div>
 </section>
 
