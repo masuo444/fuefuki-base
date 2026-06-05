@@ -62,9 +62,9 @@ nav.light{color:var(--ink);background:rgba(245,239,228,.95);backdrop-filter:blur
 
 /* ─── HERO ─── */
 .hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:#1a120a;}
-.hero-photo{position:absolute;inset:0;background:linear-gradient(160deg,#0d0905 0%,#2e1a0c 35%,#6b4020 65%,#c08848 100%);}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;}
-.hero-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.6) 100%);}
+.hero-photo{position:absolute;inset:0;background:#0d0905;}
+.hero-photo picture,.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,rgba(0,0,0,.2) 50%,rgba(0,0,0,.65) 100%);}
 .hero-body{position:relative;z-index:2;color:#fff;padding:0 24px;}
 .hero-eyebrow{font-size:.68rem;letter-spacing:.52em;color:rgba(210,170,110,.9);text-transform:uppercase;margin-bottom:28px;}
 .hero-h1{font-family:"Noto Serif JP",serif;font-size:clamp(3.8rem,10vw,8rem);font-weight:500;letter-spacing:.12em;line-height:1.7;margin-bottom:20px;}
@@ -154,7 +154,12 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-photo"></div>
+  <div class="hero-photo">
+    <picture>
+      <source media="(max-width:720px)" srcset="hero-bg-mobile.png">
+      <img src="hero-bg.png" alt="" loading="eager" fetchpriority="high">
+    </picture>
+  </div>
   <div class="hero-veil"></div>
   <div class="hero-body">
     <div class="hero-eyebrow">Invitation Only</div>
