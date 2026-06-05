@@ -28,12 +28,14 @@ a{color:inherit;text-decoration:none}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(245,239,228,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06);}
-.nav-logo{font-family:"Shippori Mincho",serif;font-size:1.1rem;font-weight:600;letter-spacing:.2em;}
+.nav-logo{font-family:"Shippori Mincho",serif;font-size:1.1rem;font-weight:600;letter-spacing:.2em;display:flex;align-items:center;gap:8px;}
+.nav-back-arrow{font-family:sans-serif;font-size:.85rem;font-weight:300;opacity:.45;letter-spacing:0;}
 .nav-links{display:flex;align-items:center;gap:36px;font-size:.78rem;letter-spacing:.18em;}
 .nav-links a{opacity:.7;transition:opacity .2s;}
 .nav-links a:hover{opacity:1;}
 .nav-links a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:2px;}
-.nav-line{border:1px solid var(--ink);border-radius:4px;padding:7px 16px;opacity:1 !important;}
+.nav-line{border:none;padding:0;opacity:.7 !important;display:flex;align-items:center;}
+.nav-line:hover{opacity:1 !important;}
 @media(max-width:720px){nav{padding:14px 24px;}.nav-links a:not(.nav-line){display:none;}}
 
 /* HERO */
@@ -48,12 +50,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @media(max-width:600px){.wrap{width:calc(100% - 48px);}}
 
 .ch-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.82rem;letter-spacing:.32em;color:var(--gold);margin-bottom:32px;display:block;}
-.ch-h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.55;letter-spacing:.04em;margin-bottom:64px;}
+.ch-h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:500;line-height:1.55;letter-spacing:.04em;margin-bottom:32px;}
 .ch-h2 span{display:block;}
-.ch-body{font-size:1.1rem;color:var(--soft);line-height:2.4;margin-bottom:32px;}
+.ch-body{font-size:.95rem;color:var(--soft);line-height:1.95;margin-bottom:14px;}
 .ch-body:last-child{margin-bottom:0;}
-.ch-emphasis{font-family:"Noto Serif JP",serif;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:2.2;margin:48px 0;padding-left:20px;border-left:2px solid var(--gold);}
-.ch-divider{width:32px;height:1px;background:var(--line);margin:56px 0;}
+.ch-emphasis{font-family:"Noto Serif JP",serif;font-size:1rem;font-weight:500;color:var(--ink);line-height:1.85;margin:24px 0;padding-left:16px;border-left:2px solid var(--gold);}
+.ch-divider{width:28px;height:1px;background:var(--line);margin:28px 0;}
 
 /* FINAL */
 .final{background:#0d0d0a;color:#fff;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;}
@@ -67,19 +69,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.25);text-align:center;padding:28px;font-size:.72rem;letter-spacing:.18em;}
 
 /* CHAPTER SPLIT LAYOUT */
-.ch-split{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;max-width:1200px;margin:0 auto;padding:140px 80px;}
-.ch-split.rev{direction:rtl;}
-.ch-split.rev > *{direction:ltr;}
-.ch-split-photo{overflow:hidden;}
-.ch-split-photo img{width:100%;height:auto;display:block;}
+.ch-split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+.ch-split-text{padding:72px 64px;display:flex;flex-direction:column;justify-content:center;}
+.ch-split-photo{display:block;overflow:hidden;background:inherit;border:none;padding:0;cursor:zoom-in;}
+.ch-split-photo img{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .2s;}
+.ch-split-photo:hover img{opacity:.88;}
 .ch-solo{padding:140px 0;}
 @media(max-width:900px){
-  .ch-split{grid-template-columns:1fr;gap:56px;padding:100px 40px;direction:ltr;}
-  .ch-split > *{direction:ltr;}
-  .ch-split-photo{position:static;aspect-ratio:4/3;}
-  .ch-split.rev .ch-split-text{order:-1;}
+  .ch-split{grid-template-columns:1fr;}
+  .ch-split-text{padding:64px 40px;}
+  .ch-split-photo{aspect-ratio:4/3;}
+  .ch-split-photo img{height:100%;}
 }
-@media(max-width:600px){.ch-split{padding:80px 24px;}}
+@media(max-width:600px){.ch-split-text{padding:56px 24px;}}
+
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center;padding:24px;}
+.lb.open{display:flex;}
+.lb-img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;}
+.lb-close{position:fixed;top:20px;right:24px;color:#fff;font-size:2rem;line-height:1;cursor:pointer;opacity:.7;transition:opacity .2s;background:none;border:none;font-family:inherit;}
+.lb-close:hover{opacity:1;}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:.9s ease;}
@@ -88,13 +97,18 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 </head>
 <body>
 
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">✕</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
+
 <nav>
   <a class="nav-logo" href="index.html">笛吹BASE</a>
   <div class="nav-links">
     <a href="fuefuki-base.html" class="active">STORY</a>
-    <a href="index.html#gatherings">EVENT</a>
     <a href="index.html#access">ACCESS</a>
-    <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="nav-line">LINE</a>
+    <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="nav-line"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
   </div>
 </nav>
 
@@ -110,7 +124,7 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <section id="chapter1">
   <div class="ch-split rv">
     <div class="ch-split-text">
-      <span class="ch-num">Chapter 01</span>
+
       <h2 class="ch-h2"><span>世界を旅して、</span><span>気づいたこと。</span></h2>
       <p class="ch-body">4年半にわたるアドレスホッパー生活。</p>
       <p class="ch-body">世界40カ国を旅し、日本、アイルランド、ドバイなど、さまざまな場所で暮らしながら、イベントやコミュニティを運営してきました。</p>
@@ -119,17 +133,17 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
       <div class="ch-emphasis">場所は違っても、本当に価値のあるものは変わらない。</div>
       <p class="ch-body">そう感じるようになりました。</p>
     </div>
-    <div class="ch-split-photo">
+    <button class="ch-split-photo lb-trigger" data-src="story-ch1.jpg">
       <img src="story-ch1.jpg" alt="ダブリンでの国際コミュニティ">
-    </div>
+    </button>
   </div>
 </section>
 
 <!-- CHAPTER 2 -->
 <section id="chapter2" style="background:#fff;">
-  <div class="ch-split rev rv">
+  <div class="ch-split rv">
     <div class="ch-split-text">
-      <span class="ch-num">Chapter 02</span>
+
       <h2 class="ch-h2"><span>人生を豊かにするのは、</span><span>「リアルな時間」だった。</span></h2>
       <p class="ch-body">テクノロジーが進化し、世界中の人と簡単につながれる時代になりました。</p>
       <p class="ch-body">しかしその一方で、同じ空間で食事をし、笑い、語り合う時間。そんな何気ないひとときこそが、人の人生を豊かにしている。そう実感する機会が増えていきました。</p>
@@ -138,16 +152,16 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
       <div class="ch-emphasis">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
       <p class="ch-body">そう考えるようになりました。</p>
     </div>
-    <div class="ch-split-photo">
+    <button class="ch-split-photo lb-trigger" data-src="story-ch2.jpg">
       <img src="story-ch2.jpg" alt="海外での食事と出会い">
-    </div>
+    </button>
   </div>
 </section>
 
 <!-- CHAPTER 3 -->
 <section id="chapter3" class="ch-solo">
   <div class="wrap rv">
-    <span class="ch-num">Chapter 03</span>
+
     <h2 class="ch-h2"><span>そして、</span><span>山梨県笛吹市へ。</span></h2>
     <p class="ch-body">2026年。これまでの移動生活に一区切りをつけ、山梨県笛吹市へ移住しました。</p>
     <p class="ch-body">温泉とワインのあるこの町には、自然の豊かさと、人の温かさがあります。現在は地域プロモーションやコミュニティづくりにも携わりながら、新しい暮らしを楽しんでいます。</p>
@@ -161,16 +175,15 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <section id="chapter4" style="background:#fff;">
   <div class="ch-split rv">
     <div class="ch-split-text">
-      <span class="ch-num">Chapter 04</span>
+
       <h2 class="ch-h2"><span>豪華なものは、</span><span>必要ない。</span></h2>
-      <p class="ch-body">日本酒を楽しむ夜。旅の話で盛り上がる時間。AIについて語り合う会。たこ焼きを囲む週末。</p>
       <p class="ch-body">特別なイベントもあれば、何気ない集まりもある。</p>
       <div class="ch-emphasis">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
       <p class="ch-body">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
     </div>
-    <div class="ch-split-photo">
+    <button class="ch-split-photo lb-trigger" data-src="story-ch4.jpg">
       <img src="story-ch4.jpg" alt="日本酒を囲む仲間たち">
-    </div>
+    </button>
   </div>
 </section>
 
@@ -191,6 +204,19 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Lightbox
+const lb=document.getElementById('lb');
+const lbImg=document.getElementById('lbImg');
+const lbClose=document.getElementById('lbClose');
+function openLb(src){lbImg.src=src;lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.lb-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>openLb(btn.dataset.src));
+});
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
 </script>
 </body>
 </html>

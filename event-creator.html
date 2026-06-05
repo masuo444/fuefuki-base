@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaSU SALON — イベント作成</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Helvetica Neue",sans-serif;background:#f5f5f5;color:#222;min-height:100vh;padding:40px 20px;}
+  .container{max-width:600px;margin:0 auto;}
+  h1{font-size:1.4rem;font-weight:700;margin-bottom:6px;}
+  .sub{font-size:.85rem;color:#666;margin-bottom:32px;}
+  .card{background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:20px;}
+  .card h2{font-size:1rem;font-weight:600;margin-bottom:20px;color:#9c6b3f;border-bottom:1px solid #eee;padding-bottom:10px;}
+  label{display:block;font-size:.82rem;font-weight:600;color:#444;margin-bottom:5px;}
+  input,select,textarea{
+    width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:8px;
+    font-size:.95rem;color:#222;background:#fafafa;
+    transition:border .2s;margin-bottom:16px;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#9c6b3f;background:#fff;}
+  textarea{resize:vertical;min-height:80px;}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .btn{
+    width:100%;padding:14px;border:none;border-radius:8px;
+    font-size:1rem;font-weight:700;cursor:pointer;
+    transition:opacity .2s,transform .2s;
+  }
+  .btn:hover{opacity:.85;transform:translateY(-1px);}
+  .btn-primary{background:#9c6b3f;color:#fff;}
+  .btn-line{background:#06C755;color:#fff;margin-top:10px;}
+  .btn-broadcast{background:#3b82f6;color:#fff;margin-top:10px;}
+  .result{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:16px;margin-top:16px;display:none;}
+  .result.error{background:#fef2f2;border-color:#fca5a5;}
+  .result h3{font-size:.9rem;font-weight:700;margin-bottom:8px;}
+  .result a{color:#9c6b3f;word-break:break-all;}
+  .result code{background:#e8e8e8;padding:2px 6px;border-radius:4px;font-size:.85rem;}
+  .policy{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:14px;font-size:.82rem;color:#78350f;margin-bottom:16px;}
+  .step{display:flex;align-items:center;gap:8px;font-size:.8rem;color:#666;margin-bottom:6px;}
+  .step-num{width:20px;height:20px;border-radius:50%;background:#9c6b3f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex:none;}
+  .loader{display:none;text-align:center;padding:10px;color:#666;font-size:.9rem;}
+  hr{border:none;border-top:1px solid #eee;margin:20px 0;}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎪 MaSU SALON イベント作成</h1>
+  <p class="sub">フォームを入力して「Stripe決済リンクを作成」→「LINE配信」の順に実行してください</p>
+
+  <!-- イベント情報 -->
+  <div class="card">
+    <h2>① イベント情報</h2>
+    <label>イベント名</label>
+    <input type="text" id="eventName" placeholder="例：Sake Night" />
+    <div class="row">
+      <div>
+        <label>開催日</label>
+        <input type="date" id="eventDate" />
+      </div>
+      <div>
+        <label>開催時間</label>
+        <input type="time" id="eventTime" value="19:00" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>参加費（円）</label>
+        <input type="number" id="price" placeholder="5000" min="0" />
+      </div>
+      <div>
+        <label>定員（人数）</label>
+        <input type="number" id="capacity" placeholder="8" min="1" />
+      </div>
+    </div>
+    <label>イベント詳細（LINE配信メッセージに使用）</label>
+    <textarea id="description" placeholder="今回のテーマ、持ち物、その他メモなど"></textarea>
+  </div>
+
+  <!-- Stripe決済リンク -->
+  <div class="card">
+    <h2>② Stripe 決済リンクを作成</h2>
+    <div class="policy">
+      ✅ キャンセルポリシー（自動で記載されます）<br>
+      3日前まで：全額返金 ／ 前日：50%返金 ／ 当日：返金なし
+    </div>
+    <button class="btn btn-primary" onclick="createStripeLink()">Stripe決済リンクを作成</button>
+    <div class="loader" id="stripeLoader">⏳ Stripeに接続中...</div>
+    <div class="result" id="stripeResult"></div>
+  </div>
+
+  <!-- LINE配信 -->
+  <div class="card">
+    <h2>③ LINEに配信</h2>
+    <div class="step"><div class="step-num">1</div>全友だちにイベント案内を送る</div>
+    <div class="step"><div class="step-num">2</div>参加申込の自動返信に決済リンクをセットする</div>
+    <button class="btn btn-line" onclick="sendLineBroadcast()">📢 全員にイベント案内を配信</button>
+    <button class="btn" style="background:#7c3aed;color:#fff;margin-top:10px;" onclick="updateAutoReply()">🔗 参加申込の返信に決済リンクをセット</button>
+    <div class="loader" id="lineLoader">⏳ LINE Harnessに接続中...</div>
+    <div class="result" id="lineResult"></div>
+  </div>
+
+  <!-- リマインダー -->
+  <div class="card">
+    <h2>④ リマインダー設定（任意）</h2>
+    <p style="font-size:.85rem;color:#666;margin-bottom:16px;">参加者に自動でリマインダーを送ります。</p>
+    <button class="btn" style="background:#6b7280;color:#fff;" onclick="window.open('https://6b655d53.masu-salon-admin-b406a08d.pages.dev/reminders','_blank')">管理画面でリマインダーを設定 →</button>
+  </div>
+</div>
+
+<script>
+const API_BASE = 'https://masu-salon.keisukendo414.workers.dev';
+const API_KEY = 'b406a08d4f5ab121e7e02bfb57e1d69e7cb4e7e5f706f2bf8d5695edbbfb926b';
+const LINE_ACCOUNT_ID = '41eb2d20-bebb-4ad5-b153-d1f0e2f2c3ef';
+const AUTOMATION_ID = '9e72b54f-a36f-4090-8b7d-7f69436f384c'; // 参加申込返信
+
+let paymentLink = '';
+
+function getEventInfo() {
+  const name = document.getElementById('eventName').value.trim();
+  const date = document.getElementById('eventDate').value;
+  const time = document.getElementById('eventTime').value;
+  const price = parseInt(document.getElementById('price').value);
+  const capacity = parseInt(document.getElementById('capacity').value);
+  const desc = document.getElementById('description').value.trim();
+
+  if (!name || !date || !price) {
+    alert('イベント名・開催日・参加費は必須です');
+    return null;
+  }
+  const dateStr = new Date(date).toLocaleDateString('ja-JP', {year:'numeric',month:'long',day:'numeric'});
+  return { name, date, time, price, capacity, desc, dateStr };
+}
+
+async function createStripeLink() {
+  const info = getEventInfo();
+  if (!info) return;
+
+  document.getElementById('stripeLoader').style.display = 'block';
+  document.getElementById('stripeResult').style.display = 'none';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/stripe-payment-link`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: `【MaSU SALON】${info.name} 参加費`,
+        amount: info.price,
+        currency: 'jpy',
+        description: `開催日：${info.dateStr} ${info.time}〜\n定員：${info.capacity}名\n\nキャンセルポリシー：\n・3日前まで：全額返金\n・前日：50%返金\n・当日：返金なし`,
+        metadata: { event_name: info.name, event_date: info.date }
+      })
+    });
+
+    if (!res.ok) throw new Error('LINE Harness経由での作成に失敗');
+    const data = await res.json();
+    paymentLink = data.url || data.payment_link;
+    showResult('stripeResult', `✅ 決済リンクを作成しました<br><a href="${paymentLink}" target="_blank">${paymentLink}</a>`, false);
+  } catch(e) {
+    // LINE Harnessに直接APIがない場合、StripeのPayment Linksページに誘導
+    paymentLink = prompt('Stripe APIでの自動作成に失敗しました。\nStripeダッシュボードで決済リンクを作成して、URLを貼り付けてください：') || '';
+    if (paymentLink) {
+      showResult('stripeResult', `✅ 決済リンクをセットしました<br><a href="${paymentLink}" target="_blank">${paymentLink}</a>`, false);
+    }
+  }
+  document.getElementById('stripeLoader').style.display = 'none';
+}
+
+async function sendLineBroadcast() {
+  const info = getEventInfo();
+  if (!info) return;
+
+  document.getElementById('lineLoader').style.display = 'block';
+  document.getElementById('lineResult').style.display = 'none';
+
+  const message = `【次回イベントのご案内】
+
+イベント：${info.name}
+日時：${info.dateStr} ${info.time}〜
+定員：${info.capacity}名
+参加費：¥${info.price.toLocaleString()}
+
+${info.desc ? info.desc + '\n\n' : ''}ご参加希望の方はメニューの「参加申込」からお申し込みください。
+
+— MaSU SALON`;
+
+  try {
+    const res = await fetch(`${API_BASE}/api/broadcasts`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lineAccountId: LINE_ACCOUNT_ID,
+        message,
+        conditions: { operator: 'AND', rules: [] }
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      showResult('lineResult', `✅ 全員にイベント案内を送信しました`, false);
+    } else {
+      showResult('lineResult', `❌ エラー：${JSON.stringify(data.error)}`, true);
+    }
+  } catch(e) {
+    showResult('lineResult', `❌ エラー：${e.message}`, true);
+  }
+  document.getElementById('lineLoader').style.display = 'none';
+}
+
+async function updateAutoReply() {
+  if (!paymentLink) {
+    alert('先にStripe決済リンクを作成してください');
+    return;
+  }
+  const info = getEventInfo();
+  if (!info) return;
+
+  document.getElementById('lineLoader').style.display = 'block';
+
+  const message = `参加申込ありがとうございます！
+
+以下から参加費をお支払いください。
+${paymentLink}
+
+【キャンセルポリシー】
+・3日前まで：全額返金
+・前日：50%返金
+・当日：返金なし
+
+支払い完了後、開催前日に住所をお送りします。
+当日お会いできることを楽しみにしています。
+
+— MaSU SALON`;
+
+  try {
+    const res = await fetch(`${API_BASE}/api/automations/${AUTOMATION_ID}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: '参加申込返信',
+        eventType: 'message',
+        lineAccountId: LINE_ACCOUNT_ID,
+        conditions: { type: 'keyword', keyword: '参加申込' },
+        actions: [{ type: 'send_message', message }],
+        priority: 10,
+        isActive: true
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      showResult('lineResult', `✅ 参加申込の自動返信に決済リンクをセットしました`, false);
+    } else {
+      showResult('lineResult', `❌ エラー：${JSON.stringify(data.error)}`, true);
+    }
+  } catch(e) {
+    showResult('lineResult', `❌ エラー：${e.message}`, true);
+  }
+  document.getElementById('lineLoader').style.display = 'none';
+}
+
+function showResult(id, html, isError) {
+  const el = document.getElementById(id);
+  el.innerHTML = `<h3>${isError ? '❌ エラー' : '✅ 完了'}</h3>${html}`;
+  el.className = 'result' + (isError ? ' error' : '');
+  el.style.display = 'block';
+}
+</script>
+</body>
+</html>
