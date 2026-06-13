@@ -47,6 +47,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:2px;}
 .nav-line{border:none;padding:0;opacity:.7 !important;display:flex;align-items:center;}
 .nav-line:hover{opacity:1 !important;}
+.lang-toggle{font-family:inherit;background:none;border:1px solid currentColor;color:inherit;padding:4px 11px;font-size:.7rem;letter-spacing:.14em;cursor:pointer;border-radius:2px;opacity:.7;transition:opacity .2s;line-height:1;}
+.lang-toggle:hover{opacity:1;}
 @media(max-width:720px){
   nav{padding:14px 24px;}
   .nav-links a:not(.nav-line){display:none;}
@@ -121,7 +123,7 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 .rv.in{opacity:1;transform:none;}
 </style>
 </head>
-<body>
+<body data-title-en="Our Story — Why FUEFUKI BASE Was Born">
 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb">
@@ -134,6 +136,7 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="nav-links">
     <a href="fuefuki-base.html" class="active">STORY</a>
     <a href="index.html#access">ACCESS</a>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
     <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="nav-line"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
   </div>
 </nav>
@@ -141,9 +144,9 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <!-- HERO -->
 <section class="hero">
   <div class="hero-label">Our Story</div>
-  <h1 class="hero-h1">笛吹BASEが<br>生まれた理由</h1>
+  <h1 class="hero-h1" data-en="Why FUEFUKI BASE<br>was born">笛吹BASEが<br>生まれた理由</h1>
   <div class="hero-divider"></div>
-  <p class="hero-sub">人と人が集まる時間には、<br>人生を変える力がある。</p>
+  <p class="hero-sub" data-en="The hours people spend together<br>have the power to change a life.">人と人が集まる時間には、<br>人生を変える力がある。</p>
 </section>
 
 <!-- CHAPTER 1 -->
@@ -151,13 +154,13 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="ch-split rv">
     <div class="ch-split-text">
 
-      <h2 class="ch-h2"><span>世界を旅して、</span><span>気づいたこと。</span></h2>
-      <p class="ch-body">4年半にわたるアドレスホッパー生活。</p>
-      <p class="ch-body">世界40カ国を旅し、日本、アイルランド、ドバイなど、さまざまな場所で暮らしながら、イベントやコミュニティを運営してきました。</p>
-      <p class="ch-body">国も、文化も、言葉も違う。</p>
-      <p class="ch-body">それでも、美味しいお酒を囲みながら語り合う時間や、偶然の出会いから生まれる会話は、人と人を自然につないでくれました。</p>
-      <div class="ch-emphasis">場所は違っても、本当に価値のあるものは変わらない。</div>
-      <p class="ch-body">そう感じるようになりました。</p>
+      <h2 class="ch-h2" data-en="<span>What traveling</span><span>the world taught me.</span>"><span>世界を旅して、</span><span>気づいたこと。</span></h2>
+      <p class="ch-body" data-en="Four and a half years of life as an address hopper.">4年半にわたるアドレスホッパー生活。</p>
+      <p class="ch-body" data-en="I traveled to 40 countries and lived in many places — Japan, Ireland, Dubai — running events and communities along the way.">世界40カ国を旅し、日本、アイルランド、ドバイなど、さまざまな場所で暮らしながら、イベントやコミュニティを運営してきました。</p>
+      <p class="ch-body" data-en="Different countries, different cultures, different languages.">国も、文化も、言葉も違う。</p>
+      <p class="ch-body" data-en="And yet, sharing good drinks and conversation, or the talk born from a chance encounter, connected people as naturally as ever.">それでも、美味しいお酒を囲みながら語り合う時間や、偶然の出会いから生まれる会話は、人と人を自然につないでくれました。</p>
+      <div class="ch-emphasis" data-en="Wherever you are, what truly matters never changes.">場所は違っても、本当に価値のあるものは変わらない。</div>
+      <p class="ch-body" data-en="That is what I came to feel.">そう感じるようになりました。</p>
     </div>
     <button class="ch-split-photo lb-trigger" data-src="story-ch1.jpg">
       <img src="story-ch1.jpg" alt="ダブリンでの国際コミュニティ">
@@ -170,13 +173,13 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="ch-split rv">
     <div class="ch-split-text">
 
-      <h2 class="ch-h2"><span>人生を豊かにするのは、</span><span>「リアルな時間」だった。</span></h2>
-      <p class="ch-body">テクノロジーが進化し、世界中の人と簡単につながれる時代になりました。</p>
-      <p class="ch-body">しかしその一方で、同じ空間で食事をし、笑い、語り合う時間。そんな何気ないひとときこそが、人の人生を豊かにしている。そう実感する機会が増えていきました。</p>
+      <h2 class="ch-h2" data-en="<span>What enriches a life</span><span>was &ldquo;real time together.&rdquo;</span>"><span>人生を豊かにするのは、</span><span>「リアルな時間」だった。</span></h2>
+      <p class="ch-body" data-en="Technology has advanced, and we live in an age where connecting with anyone in the world is easy.">テクノロジーが進化し、世界中の人と簡単につながれる時代になりました。</p>
+      <p class="ch-body" data-en="And yet, more and more I came to feel that it is the unremarkable moments — sharing a meal, laughing, talking in the same room — that truly enrich a life.">しかしその一方で、同じ空間で食事をし、笑い、語り合う時間。そんな何気ないひとときこそが、人の人生を豊かにしている。そう実感する機会が増えていきました。</p>
       <div class="ch-divider"></div>
-      <p class="ch-body">どんな仕事をしているか。どこに住んでいるか。どんな肩書きを持っているか。</p>
-      <div class="ch-emphasis">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
-      <p class="ch-body">そう考えるようになりました。</p>
+      <p class="ch-body" data-en="What work you do. Where you live. What title you hold.">どんな仕事をしているか。どこに住んでいるか。どんな肩書きを持っているか。</p>
+      <div class="ch-emphasis" data-en="More than any of that — who you share your time with<br>shapes your life far more.">それよりも、誰と時間を共有するか。<br>その方が、人生に大きな影響を与える。</div>
+      <p class="ch-body" data-en="That is what I came to believe.">そう考えるようになりました。</p>
     </div>
     <button class="ch-split-photo lb-trigger" data-src="story-ch2.jpg">
       <img src="story-ch2.jpg" alt="海外での食事と出会い">
@@ -188,12 +191,12 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <section id="chapter3" class="ch-solo">
   <div class="wrap rv">
 
-    <h2 class="ch-h2"><span>そして、</span><span>山梨県笛吹市へ。</span></h2>
-    <p class="ch-body">2026年。これまでの移動生活に一区切りをつけ、山梨県笛吹市へ移住しました。</p>
-    <p class="ch-body">温泉とワインのあるこの町には、自然の豊かさと、人の温かさがあります。現在は地域プロモーションやコミュニティづくりにも携わりながら、新しい暮らしを楽しんでいます。</p>
+    <h2 class="ch-h2" data-en="<span>And so,</span><span>to Fuefuki, Yamanashi.</span>"><span>そして、</span><span>山梨県笛吹市へ。</span></h2>
+    <p class="ch-body" data-en="In 2026, I drew a line under my years of constant travel and settled in Fuefuki, Yamanashi.">2026年。これまでの移動生活に一区切りをつけ、山梨県笛吹市へ移住しました。</p>
+    <p class="ch-body" data-en="This town of hot springs and wine holds both the richness of nature and the warmth of its people. Today, while taking part in regional promotion and community building, I am enjoying a new way of life.">温泉とワインのあるこの町には、自然の豊かさと、人の温かさがあります。現在は地域プロモーションやコミュニティづくりにも携わりながら、新しい暮らしを楽しんでいます。</p>
     <div class="ch-divider"></div>
-    <div class="ch-emphasis">そして、この場所から、もう一度。<br>人と人が出会い、新しい物語が生まれる場をつくりたい。</div>
-    <p class="ch-body">そんな想いから、笛吹BASEは生まれました。</p>
+    <div class="ch-emphasis" data-en="And from this place, once more —<br>I want to create a space where people meet and new stories begin.">そして、この場所から、もう一度。<br>人と人が出会い、新しい物語が生まれる場をつくりたい。</div>
+    <p class="ch-body" data-en="From that wish, FUEFUKI BASE was born.">そんな想いから、笛吹BASEは生まれました。</p>
   </div>
 </section>
 
@@ -202,10 +205,10 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="ch-split rv">
     <div class="ch-split-text">
 
-      <h2 class="ch-h2"><span>豪華なものは、</span><span>必要ない。</span></h2>
-      <p class="ch-body">特別なイベントもあれば、何気ない集まりもある。</p>
-      <div class="ch-emphasis">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
-      <p class="ch-body">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
+      <h2 class="ch-h2" data-en="<span>Nothing lavish</span><span>is needed.</span>"><span>豪華なものは、</span><span>必要ない。</span></h2>
+      <p class="ch-body" data-en="Some gatherings are special events; others are nothing out of the ordinary.">特別なイベントもあれば、何気ない集まりもある。</p>
+      <div class="ch-emphasis" data-en="What matters is not &ldquo;what you do,&rdquo; but &ldquo;who you're with.&rdquo;">大切なのは、「何をするか」ではなく、「誰と過ごすか」。</div>
+      <p class="ch-body" data-en="FUEFUKI BASE wants to be a place where interesting people and real experiences come together.">笛吹BASEは、面白い人たちと、リアルな体験が生まれる場所でありたいと思っています。</p>
     </div>
     <button class="ch-split-photo lb-trigger" data-src="story-ch4.jpg">
       <img src="story-ch4.jpg" alt="日本酒を囲む仲間たち">
@@ -217,17 +220,42 @@ footer{background:#0d0d0a;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <section class="final">
   <div class="rv">
     <h2 class="final-h2">See you at<br>FUEFUKI BASE.</h2>
-    <p class="final-sub">また、どこかの集まりで。</p>
+    <p class="final-sub" data-en="Until the next gathering.">また、どこかの集まりで。</p>
     <a class="line-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      LINEで友だち追加
+      <span data-en="Add us on LINE">LINEで友だち追加</span>
     </a>
   </div>
 </section>
 
-<footer>笛吹BASE &nbsp;/&nbsp; Hosted by まっすー / MaSU &nbsp;/&nbsp; 山梨県笛吹市</footer>
+<footer data-en="FUEFUKI BASE &nbsp;/&nbsp; Hosted by MaSU &nbsp;/&nbsp; Fuefuki, Yamanashi">笛吹BASE &nbsp;/&nbsp; Hosted by まっすー / MaSU &nbsp;/&nbsp; 山梨県笛吹市</footer>
 
 <script>
+/* ─── i18n 言語切替 ─── */
+(function(){
+  const KEY='fuefuki_lang';
+  const toggle=document.getElementById('langToggle');
+  const titleJa=document.title;
+  const titleEn=document.body.dataset.titleEn;
+  function apply(lang){
+    const en=lang==='en';
+    document.documentElement.lang=en?'en':'ja';
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      if(el.dataset.ja===undefined) el.dataset.ja=el.innerHTML;
+      el.innerHTML=en?el.dataset.en:el.dataset.ja;
+    });
+    if(titleEn) document.title=en?titleEn:titleJa;
+    if(toggle) toggle.textContent=en?'日本語':'EN';
+  }
+  let lang=localStorage.getItem(KEY)||'ja';
+  apply(lang);
+  if(toggle) toggle.addEventListener('click',()=>{
+    lang=lang==='en'?'ja':'en';
+    localStorage.setItem(KEY,lang);
+    apply(lang);
+  });
+})();
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 

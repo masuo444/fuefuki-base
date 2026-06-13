@@ -46,6 +46,8 @@ nav.light{color:var(--ink);background:rgba(245,239,228,.95);backdrop-filter:blur
 .nav-links a:hover{opacity:1;}
 .nav-line{border:none;padding:0;opacity:.75 !important;display:flex;align-items:center;}
 .nav-line:hover{opacity:1 !important;}
+.lang-toggle{font-family:inherit;background:none;border:1px solid currentColor;color:inherit;padding:4px 11px;font-size:.7rem;letter-spacing:.14em;cursor:pointer;border-radius:2px;opacity:.7;transition:opacity .2s;line-height:1;}
+.lang-toggle:hover{opacity:1;}
 /* ─── HERO ─── */
 .hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:#1a120a;}
 .hero-photo{position:absolute;inset:0;background:#0d0905;}
@@ -106,8 +108,11 @@ nav.light{color:var(--ink);background:rgba(245,239,228,.95);backdrop-filter:blur
 @media(max-width:768px){.host-grid{grid-template-columns:1fr;gap:56px;}.host-photo{aspect-ratio:4/3;}}
 
 /* ─── ACCESS ─── */
-.access-full{background:#1a3320;}
+.access-full{background:linear-gradient(180deg,#0a190c 0%,#15291b 100%);}
 .access-img{width:100%;display:block;}
+.access-en-wrap{display:flex;justify-content:center;align-items:center;}
+.access-en-wrap img{width:100%;max-width:600px;height:auto;display:block;}
+@media(max-width:720px){.access-en-wrap img{max-width:100%;}}
 
 /* ─── FINAL ─── */
 .final{background:#0d0905;color:#fff;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;}
@@ -142,7 +147,7 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 }
 </style>
 </head>
-<body>
+<body data-title-en="FUEFUKI BASE — An Invitation-Only Hideaway Salon">
 
 <!-- NAV -->
 <nav id="nav" class="dark">
@@ -150,6 +155,7 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="nav-links">
     <a href="fuefuki-base.html">STORY</a>
     <a href="#access">ACCESS</a>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
     <a href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener" class="nav-line"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
   </div>
 </nav>
@@ -165,16 +171,16 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="hero-veil"></div>
   <div class="hero-body">
     <div class="hero-eyebrow">Invitation Only</div>
-    <h1 class="hero-h1">笛吹BASE</h1>
-    <div class="hero-sub">〜紹介制の隠れ家サロン〜</div>
+    <h1 class="hero-h1" data-en="FUEFUKI BASE">笛吹BASE</h1>
+    <div class="hero-sub" data-en="An invitation-only hideaway salon">〜紹介制の隠れ家サロン〜</div>
     <div class="hero-desc">
-      <p>人と文化が交差する、小さな社交場。</p>
-      <p>その日ごとに、集まる人も、テーマも変わる。</p>
+      <p data-en="A small social space where people and cultures meet.">人と文化が交差する、小さな社交場。</p>
+      <p data-en="Each day brings different people and a different theme.">その日ごとに、集まる人も、テーマも変わる。</p>
     </div>
     <div class="hero-arrow">↓</div>
     <a class="hero-cta" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      LINE で案内を受け取る
+      <span data-en="Get invites on LINE">LINE で案内を受け取る</span>
     </a>
   </div>
   <div class="hero-scroll">
@@ -188,10 +194,10 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="wrap">
     <div class="about-center reveal">
       <div class="label">About</div>
-      <h2>何をするかよりも、<br>誰と過ごすか。</h2>
-      <p>テーマも、集まる人も、<br>毎回違う。</p>
-      <p>共通しているのは、<br>面白い人と、リアルな体験。</p>
-      <p>それだけでいい。</p>
+      <h2 data-en="It's not what you do,<br>but who you're with.">何をするかよりも、<br>誰と過ごすか。</h2>
+      <p data-en="The theme and the people<br>change every time.">テーマも、集まる人も、<br>毎回違う。</p>
+      <p data-en="What stays the same:<br>interesting people and real experiences.">共通しているのは、<br>面白い人と、リアルな体験。</p>
+      <p data-en="That's all it takes.">それだけでいい。</p>
     </div>
   </div>
 </section>
@@ -201,10 +207,10 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
   <div class="wrap">
     <div class="gather-head reveal">
       <div class="label">Gatherings</div>
-      <h2>世界各地で生まれた、<br>たくさんの出会い。</h2>
-      <p>日本、アイルランド、ドバイ。</p>
-      <p>これまで様々なイベントやコミュニティを通じて、<br>人と人がつながる場をつくってきました。</p>
-      <p>そして2026年。<br>新たな舞台として、<br>笛吹BASEが始まります。</p>
+      <h2 data-en="Countless encounters,<br>born around the world.">世界各地で生まれた、<br>たくさんの出会い。</h2>
+      <p data-en="Japan, Ireland, Dubai.">日本、アイルランド、ドバイ。</p>
+      <p data-en="Through events and communities across the globe,<br>we've created places where people connect.">これまで様々なイベントやコミュニティを通じて、<br>人と人がつながる場をつくってきました。</p>
+      <p data-en="And now, in 2026,<br>a new stage begins:<br>FUEFUKI BASE.">そして2026年。<br>新たな舞台として、<br>笛吹BASEが始まります。</p>
     </div>
     <div class="gl-slideshow reveal">
       <div class="gl-track" id="glTrack">
@@ -238,10 +244,10 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
       </div>
       <div class="host-text">
         <div class="label">Founder</div>
-        <h2>まっすー / MaSU</h2>
-        <p>世界40カ国を旅し、<br>日本、アイルランド、ドバイを拠点に、<br>イベントやコミュニティを運営してきました。</p>
-        <p>2026年に山梨県笛吹市へ移住。</p>
-        <p>現在は地域プロモーションにも携わりながら、<br>笛吹BASEを主宰しています。</p>
+        <h2 data-en="MaSU">まっすー / MaSU</h2>
+        <p data-en="Having traveled to 40 countries<br>and lived in Japan, Ireland, and Dubai,<br>he has run events and communities around the world.">世界40カ国を旅し、<br>日本、アイルランド、ドバイを拠点に、<br>イベントやコミュニティを運営してきました。</p>
+        <p data-en="In 2026, he settled in Fuefuki, Yamanashi.">2026年に山梨県笛吹市へ移住。</p>
+        <p data-en="Today, alongside his work in regional promotion,<br>he hosts FUEFUKI BASE.">現在は地域プロモーションにも携わりながら、<br>笛吹BASEを主宰しています。</p>
         <a class="story-link" href="fuefuki-base.html">Story →</a>
       </div>
     </div>
@@ -250,7 +256,7 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 
 <!-- ACCESS -->
 <section class="access-full" id="access">
-  <a href="access-design.png" target="_blank" rel="noopener">
+  <a href="access-design.png" target="_blank" rel="noopener" data-en-href="access-en.png" data-en="<span class='access-en-wrap'><img class='access-img' src='access-en.png' alt='Access — about 90 minutes from Tokyo by Limited Express, a few minutes on foot from Isawa Onsen Station'></span>">
     <picture>
       <source media="(max-width:720px)" srcset="access-mobile.png">
       <img class="access-img" src="access-design.png" alt="アクセス — 東京（新宿）から特急かいじ・あずさで約90分、石和温泉駅から徒歩数分">
@@ -262,18 +268,47 @@ footer{background:#0d0905;border-top:1px solid rgba(255,255,255,.06);color:rgba(
 <section class="final">
   <div class="reveal">
     <h2>See you at<br>FUEFUKI BASE.</h2>
-    <div class="en-sub">また、どこかの集まりで。</div>
-    <div class="ja-sub">イベント情報は、<br>公式LINEでお知らせしています。</div>
+    <div class="en-sub" data-en="Until the next gathering.">また、どこかの集まりで。</div>
+    <div class="ja-sub" data-en="Event updates are shared<br>through our official LINE.">イベント情報は、<br>公式LINEでお知らせしています。</div>
     <a class="line-btn" href="https://line.me/R/ti/p/%40412jqsnb" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      LINEで友だち追加
+      <span data-en="Add us on LINE">LINEで友だち追加</span>
     </a>
   </div>
 </section>
 
-<footer>笛吹BASE &nbsp;/&nbsp; Hosted by まっすー / MaSU &nbsp;/&nbsp; 山梨県笛吹市</footer>
+<footer data-en="FUEFUKI BASE &nbsp;/&nbsp; Hosted by MaSU &nbsp;/&nbsp; Fuefuki, Yamanashi">笛吹BASE &nbsp;/&nbsp; Hosted by まっすー / MaSU &nbsp;/&nbsp; 山梨県笛吹市</footer>
 
 <script>
+/* ─── i18n 言語切替 ─── */
+(function(){
+  const KEY='fuefuki_lang';
+  const toggle=document.getElementById('langToggle');
+  const titleJa=document.title;
+  const titleEn=document.body.dataset.titleEn;
+  function apply(lang){
+    const en=lang==='en';
+    document.documentElement.lang=en?'en':'ja';
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      if(el.dataset.ja===undefined) el.dataset.ja=el.innerHTML;
+      el.innerHTML=en?el.dataset.en:el.dataset.ja;
+    });
+    document.querySelectorAll('[data-en-href]').forEach(el=>{
+      if(el.dataset.jaHref===undefined) el.dataset.jaHref=el.getAttribute('href');
+      el.setAttribute('href',en?el.dataset.enHref:el.dataset.jaHref);
+    });
+    if(titleEn) document.title=en?titleEn:titleJa;
+    if(toggle) toggle.textContent=en?'日本語':'EN';
+  }
+  let lang=localStorage.getItem(KEY)||'ja';
+  apply(lang);
+  if(toggle) toggle.addEventListener('click',()=>{
+    lang=lang==='en'?'ja':'en';
+    localStorage.setItem(KEY,lang);
+    apply(lang);
+  });
+})();
+
 const nav=document.getElementById('nav');
 const hero=document.querySelector('.hero');
 const io2=new IntersectionObserver(([e])=>nav.className='nav '+(e.isIntersecting?'dark':'light'),{threshold:.1});
