@@ -1,37 +1,8 @@
 # 笛吹BASE robots.txt
+# 紹介制のプライベートな集まり。検索エンジンには載せますが、
+# 一般集客は目的としていません。
 
 User-agent: *
-Allow: /
-
-# AIクローラを明示的に許可（AIO: ChatGPT / Perplexity / Google AI Overview 等に引用されやすくする）
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bingbot
 Allow: /
 
 Sitemap: https://fuefukibase.fomus.jp/sitemap.xml
