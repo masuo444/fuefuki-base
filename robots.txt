@@ -34,4 +34,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://fuefuki-base.vercel.app/sitemap.xml
+Sitemap: https://fuefukibase.fomus.jp/sitemap.xml
